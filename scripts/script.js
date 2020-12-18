@@ -33,6 +33,7 @@ function setCookie(cname,cvalue,exdays) {
     } else {
        counter = 1;
        console.log("tu nie su cookies");
+       alert("Táto stránka používa cookies.");
        if (counter != "" && counter != null) {
          setCookie("visitCounter", counter, 30);
        }
