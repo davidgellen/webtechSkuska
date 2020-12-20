@@ -42,4 +42,8 @@ function setCookie(cname,cvalue,exdays) {
     document.getElementById("visitCounter").innerText = counter;
   }
 
+  class VisitCounter extends HTMLElement{
+    
+  }
+
   document.onload = checkCookie();
