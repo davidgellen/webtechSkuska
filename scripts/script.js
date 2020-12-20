@@ -23,23 +23,61 @@ function setCookie(cname,cvalue,exdays) {
     return "";
   }
   
-  function checkCookie() {
-    var counter=getCookie("visitCounter");
-    if (counter != "") {
-        counter = parseInt(counter) + 1;
-        increaseCounterInCookies(counter);
-        console.log("tu su cookies");
-        console.log(counter);
-    } else {
-       counter = 1;
-       console.log("tu nie su cookies");
-       alert("Táto stránka používa cookies.");
-       if (counter != "" && counter != null) {
-         setCookie("visitCounter", counter, 30);
-       }
-       console.log("uz by mali byt");
+  // function checkCookie() {
+  //   var counter=getCookie("visitCounter");
+  //   if (counter != "") {
+  //       counter = parseInt(counter) + 1;
+  //       increaseCounterInCookies(counter);
+  //       console.log("tu su cookies");
+  //       console.log(counter);
+  //   } else {
+  //      counter = 1;
+  //      console.log("tu nie su cookies");
+  //      alert("Táto stránka používa cookies.");
+  //      if (counter != "" && counter != null) {
+  //        setCookie("visitCounter", counter, 30);
+  //      }
+  //      console.log("uz by mali byt");
+  //   }
+  //   document.getElementById("visitCounter").innerText = counter;
+  // }
+
+  var template = document.createElement("template");
+  template.innerHTML = 
+  `   <div>
+        <p>Počet vašej návštevnosti:</p>
+        <span id="visitCounter"></span>
+      </div> `
+
+  class VisitCounter extends HTMLElement{
+    constructor(){
+      super();
+      this.attachShadow({mode: "open"});
+      this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
-    document.getElementById("visitCounter").innerText = counter;
+
+    connectedCallback(){
+      this.checkCookie()
+    }
+
+    checkCookie(){
+      var counter=getCookie("visitCounter");
+      if (counter != "") {
+          counter = parseInt(counter) + 1;
+          increaseCounterInCookies(counter);
+          console.log("tu su cookies");
+          console.log(counter);
+      } else {
+        counter = 1;
+        console.log("tu nie su cookies");
+        alert("Táto stránka používa cookies.");
+        if (counter != "" && counter != null) {
+          setCookie("visitCounter", counter, 30);
+        }
+        console.log("uz by mali byt");
+      }
+      this.shadowRoot.querySelector("#visitCounter").innerText = counter;
+    }
   }
 
-  document.onload = checkCookie();
+  window.customElements.define('visit-counter', VisitCounter);
