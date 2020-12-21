@@ -8,7 +8,7 @@ document.getElementById("meninyNameInputSubmit").onclick = function(){
 
 
 
-// cast pre komponent 
+// cast pre komponent kjhvhgv
 
 const template = document.createElement("template");
 template.innerHTML = `
