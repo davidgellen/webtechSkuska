@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/meniny.css">
     <title>Meniny test</title>
 </head>
 
@@ -17,16 +18,39 @@
 
     <p id = "currentMeninyParagprah">Dnes má meniny: <span id = "currentMeniny"></span></p>
 
+    <p>----------------------------------------------------------------------------</p>
+
     <label for="meninyDateInput">Dátum:</label>
     <input type="text" id="meninyDateInput" name="meninyDateInput">
 
+    <select name="countrySelect" id="countrySelect">
+        <option value="SKd">Slovensko</option>
+        <option value="CZ">Cesko</option>
+        <option value="HU">Madari</option>
+        <option value="PL">Polska</option>
+        <option value="AT">Rakusko</option>
+    </select>
+
+    <button type = "button" id = "meninyDateInputSubmit">najdi meno</button>   
+
     <p id ="meninyDateInputResult"></p>
 
-    <button type = "button" id = "meninyDateInputSubmit">najdi meno</button>
+    <p>----------------------------------------------------------------------------</p>
 
-    <p>priezviska slovenske</p>
+    <label for="meninyNameInput">Meno: </label>
+    <input type="text" id="meninyNameInput" name="meninyNameInput">
 
-    <table id="demo"></table>
+    <button type = "button" id = "meninyNameInputSubmit">najdi datum</button>  
+    
+    <p id ="meninyNameInputResult"></p>
+
+    <p>----------------------------------------------------------------------------</p>
+
+    <div class = "custom_tooltip">
+        <div class="tooltip_content" id="meniny_tooltip">
+            <p>Validné formáty: <br> dd.mm. <br> dd.m. <br> d.mm. <br> d.m.</p>
+        </div>
+    </div>
 
     <script src="../scripts/meniny.js"></script>
 
