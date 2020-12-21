@@ -1,0 +1,20 @@
+.custom_tooltip{
+	position: relative;
+    width: 10%;
+}
+
+#meniny_tooltip{
+	visibility: visible;
+	background-color: black;
+	color: white;
+	position: relative;
+	border: 0.2vw solid red;
+    z-index: 5;
+    opacity: 0;
+	width: 100%;
+	font-size: 1vw;
+	text-align: center;
+    padding: 1vw;
+    transition: 0.6s;
+}
+
