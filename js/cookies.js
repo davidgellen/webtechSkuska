@@ -42,10 +42,9 @@ function setCookie(cname,cvalue,exdays) {
   //   document.getElementById("visitCounter").innerText = counter;
   // }kjbh
 
-  var template = document.createElement("template");
-  template.innerHTML = 
+  var visitTemplate = document.createElement("template");
+  visitTemplate.innerHTML = 
   `   <div>
-        <p>Počet vašej návštevnosti:</p>
         <span id="visitCounter"></span>
       </div> `
 
@@ -53,7 +52,7 @@ function setCookie(cname,cvalue,exdays) {
     constructor(){
       super();
       this.attachShadow({mode: "open"});
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
+      this.shadowRoot.appendChild(visitTemplate.content.cloneNode(true));
     }
 
     connectedCallback(){
@@ -76,7 +75,7 @@ function setCookie(cname,cvalue,exdays) {
         }
         console.log("uz by mali byt");
       }
-      this.shadowRoot.querySelector("#visitCounter").innerText = counter;
+      this.shadowRoot.querySelector("#visitCounter").innerText = "Počet vašej návštevnosti: " + counter;
     }
   }
 
