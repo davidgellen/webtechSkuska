@@ -10,8 +10,8 @@ document.getElementById("meninyNameInputSubmit").onclick = function(){
 
 // cast pre komponent kjhvhgv
 
-const template = document.createElement("template");
-template.innerHTML = `
+const templateMeniny = document.createElement("template");
+templateMeniny.innerHTML = `
 <p id = "currentDate"></p>
 
     <p id = "currentMeninyParagprah">Dnes má meniny: <span id = "currentMeniny"></span></p>
@@ -55,7 +55,7 @@ class Meniny extends HTMLElement{
     constructor(){
         super();
         this.attachShadow({mode:"open"});
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.appendChild(templateMeniny.content.cloneNode(true));
     }
     connectedCallback(){
         var xmlData;
