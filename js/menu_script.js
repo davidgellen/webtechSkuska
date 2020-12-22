@@ -6,15 +6,15 @@ var menuData = {
         },
         {
             "title" : "Tím",
-            "uri": "team.html",
+            "uri": "#",
             "submenu" : [
                 {
                     "title":"Zuzka",
-                    "uri": "zuzka.html",
+                    "uri": "#",
                     "submenu" : [
                         {
-                            "title":"Kontakt",
-                            "uri": "zuzka_kontakt.html"
+                            "title":"Informácie",
+                            "uri": "zuzka_informacie.html"
                         },
                         {
                             "title":"Hra",
@@ -24,11 +24,11 @@ var menuData = {
                 },
                 {
                     "title":"David",
-                    "uri": "david.html",
+                    "uri": "#",
                     "submenu" : [
                         {
-                            "title":"Kontakt",
-                            "uri": "david_kontakt.html"
+                            "title":"Informácie",
+                            "uri": "david_informacie.html"
                         },
                         {
                             "title":"Hra",
@@ -38,11 +38,11 @@ var menuData = {
                 },
                 {
                     "title":"Peťo",
-                    "uri": "peto.html",
+                    "uri": "#",
                     "submenu" : [
                         {
-                            "title":"Kontakt",
-                            "uri": "peto_kontakt.html"
+                            "title":"Informácie",
+                            "uri": "peto_informacie.html"
                         },
                         {
                             "title":"Hra",
@@ -52,11 +52,11 @@ var menuData = {
                 },
                 {
                     "title":"Paťo",
-                    "uri": "pato.html",
+                    "uri": "#",
                     "submenu" : [
                         {
-                            "title":"Kontakt",
-                            "uri": "pato_kontakt.html"
+                            "title":"Informácie",
+                            "uri": "pato_informacie.html"
                         },
                         {
                             "title":"Hra",
@@ -115,7 +115,7 @@ var menuData = {
     }
 
     function openSubMenu(el) {
-        el.addEventListener("mouseover", function(ev){
+        el.addEventListener("click", function(ev){
             ev.stopPropagation();
 
             var subMenus = ev.target.parentNode.parentNode.parentNode.getElementsByTagName("ul");
