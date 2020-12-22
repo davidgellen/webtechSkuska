@@ -6,17 +6,28 @@
     <title>Home</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/meniny.css">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
 </head>
 <body>
     <header class="custom-header">
         <menu-komponent></menu-komponent>
     </header>
     <article>
-        <section class="maxWidth">
-            <set-breadcrumbs></set-breadcrumbs><br>
-            <visit-counter></visit-counter><br>
-            <meniny-getter></meniny-getter>
-            <p>Vitaj ty pepega</p>
+        <section class="maxWidth container">
+            <div class="row">
+                <div class="col-sm-12 col-md-9">
+                    <set-breadcrumbs></set-breadcrumbs>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    <visit-counter></visit-counter>
+                </div>
+            </div>
+            <div class="col">
+                <meniny-getter></meniny-getter>
+            </div>
+            <div class="col">
+                <p>Vitaj ty pepega</p>
+            </div>
         </section>
     </article>
     <!-- <script></script> -->
