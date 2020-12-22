@@ -68,7 +68,7 @@ class Meniny extends HTMLElement{
 
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
-            let url = "/res/xml/meniny.xml";
+            let url = "../res/xml/meniny.xml";
             xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 xmlDoc = this.responseXML;
