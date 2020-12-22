@@ -23,3 +23,8 @@ body{
     background-color: rgba(0, 0, 0, 0.411);
     padding: 1rem;
 }
+
+h1{
+    font-weight: bolder;
+}
+

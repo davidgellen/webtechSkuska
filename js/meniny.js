@@ -29,7 +29,7 @@ templateMeniny.innerHTML = `
         <option value="AT">Rakusko</option>
     </select>
 
-    <button type = "button" id = "meninyDateInputSubmit">najdi meno</button>   
+    <button type = "button" id = "meninyDateInputSubmit">nájdi meno</button>   
 
     <p id ="meninyDateInputResult"></p>
 
@@ -38,7 +38,7 @@ templateMeniny.innerHTML = `
     <label for="meninyNameInput">Meno: </label>
     <input type="text" id="meninyNameInput" name="meninyNameInput">
 
-    <button type = "button" id = "meninyNameInputSubmit">najdi datum</button>  
+    <button type = "button" id = "meninyNameInputSubmit">nájdi datum</button>  
     
     <p id ="meninyNameInputResult"></p>
 
