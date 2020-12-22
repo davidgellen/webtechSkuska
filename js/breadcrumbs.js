@@ -1,4 +1,4 @@
-const template = document.createElement('template1');
+const template1 = document.createElement('template');
 template.innerHTML = 
 `   
     <div id="history">
