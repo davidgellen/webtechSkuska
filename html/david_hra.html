@@ -4,13 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/menu_style.css"/>
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>David hra</title>
 </head>
 <body>
+    <!--
     <div id="container">
         <ul id="menu" class="menu"></ul>
     </div>
+    -->
     <p>Toto je stranka hry Davida</p>
-    <script src="../js/menu_script.js"></script>
+
+    <div id = "kraje">
+
+    </div>
+
+    <div id = "map">
+        <div class="row">
+            <div class="col border border-primary droppable" id = "BAdrop">
+                <p></p>
+            </div>
+            <div class="col border border-primary droppable" id = "TTdrop">
+                
+            </div>
+            <div class="col border border-primary droppable" id = "TRdrop">
+                
+            </div>
+            <div class="col border border-primary droppable" id = "NRdrop">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border border-primary droppable" id = "ZIdrop">
+                <p></p>
+            </div>
+            <div class="col border border-primary droppable" id = "BBdrop">
+                
+            </div>
+            <div class="col border border-primary droppable" id = "PRdrop">
+                
+            </div>
+            <div class="col border border-primary droppable" id = "KEdrop">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/game/hraDavid.js"></script>
+    <!--<script src="../js/menu_script.js"></script>-->
 </body>
 </html>
