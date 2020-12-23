@@ -73,76 +73,6 @@ var menuData = {
     ]
 };
 
-/*(function () {
-    function menuElem(obj, el) {
-        for (var i = 0; i < obj.length; i++) {
-
-            var menuElement = document.createElement("li");
-            el.appendChild(menuElement);
-
-            var menuLink = document.createElement("a");
-            menuLink.setAttribute("href", obj[i].uri);
-            menuLink.setAttribute("title", obj[i].title);
-
-            var arrow = document.createElement("div");
-            arrow.className = 'arrow';
-            arrow.innerHTML = '>';
-
-            var title = document.createElement("div");
-            title.className = 'title';
-            title.innerHTML = obj[i].title;
-
-            menuLink.appendChild(title);
-
-            if (typeof obj[i].submenu != 'undefined') {
-                menuLink.className = 'subMenuLink';
-                //menuLink.appendChild(arrow);
-            }
-
-            menuElement.appendChild(menuLink);
-
-            if (typeof obj[i].submenu != 'undefined') {
-                var subMenu = document.createElement("ul");
-                subMenu.className = 'subMenu';
-
-                var properties = {submenu : obj[i].submenu, subMenuEl : subMenu, menuEl : menuElement};
-
-                menuLink.properties = properties;
-
-                openSubMenu(menuLink);
-            }
-        }
-    }
-
-    function openSubMenu(el) {
-        el.addEventListener("click", function(ev){
-            ev.stopPropagation();
-
-            var subMenus = ev.target.parentNode.parentNode.parentNode.getElementsByTagName("ul");
-
-            var links = ev.target.parentNode.parentNode.parentNode.getElementsByClassName('subMenuLink');
-
-            for (var i = 1; i < subMenus.length; i++) {
-                subMenus[i].parentNode.removeChild(subMenus[i]);
-            }
-
-            for (var i = 0; i < links.length; i++) {
-                links[i].style.color = "#A36220";
-            };
-
-            this.style.color = "#DBC195";
-
-            this.properties.subMenuEl.innerHTML = "";
-            this.properties.menuEl.appendChild(this.properties.subMenuEl);
-            menuElem(this.properties.submenu, this.properties.subMenuEl);
-        });
-
-    };
-
-    return menuElem(menuData.menu, document.getElementById("menu"));
-
-})();*/
-
 const template = document.createElement("template");
 template.innerHTML = `
 <div id="container">
@@ -166,6 +96,7 @@ template.innerHTML = `
         #container li {
             list-style: none;
             position: relative;
+            z-index: 10;
         }
         
         li {
@@ -229,10 +160,6 @@ class mojeMenu extends HTMLElement{
                     menuLink.setAttribute("href", obj[i].uri);
                     menuLink.setAttribute("title", obj[i].title);
         
-                    /*var arrow = document.createElement("div");
-                    arrow.className = 'arrow';
-                    arrow.innerHTML = '>';*/
-        
                     var title = document.createElement("div");
                     title.className = 'title';
                     title.innerHTML = obj[i].title;
@@ -241,7 +168,6 @@ class mojeMenu extends HTMLElement{
         
                     if (typeof obj[i].submenu != 'undefined') {
                         menuLink.className = 'subMenuLink';
-                        //menuLink.appendChild(arrow);
                     }
         
                     menuElement.appendChild(menuLink);
@@ -270,11 +196,6 @@ class mojeMenu extends HTMLElement{
                     for (var i = 1; i < subMenus.length; i++) {
                         subMenus[i].parentNode.removeChild(subMenus[i]);
                     }
-        
-                    /*for (var i = 0; i < links.length; i++) {
-                        links[i].style.color = "#A36220";
-                    };*/
-        
                     this.style.color = "#DBC195";
         
                     this.properties.subMenuEl.innerHTML = "";
