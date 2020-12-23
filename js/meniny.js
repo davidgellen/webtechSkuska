@@ -29,7 +29,7 @@ templateMeniny.innerHTML = `
         <option value="AT">Rakusko</option>
     </select>
 
-    <button type = "button" id = "meninyDateInputSubmit">najdi meno</button>   
+    <button type = "button" id = "meninyDateInputSubmit">nájdi meno</button>   
 
     <p id ="meninyDateInputResult"></p>
 
@@ -38,7 +38,7 @@ templateMeniny.innerHTML = `
     <label for="meninyNameInput">Meno: </label>
     <input type="text" id="meninyNameInput" name="meninyNameInput">
 
-    <button type = "button" id = "meninyNameInputSubmit">najdi datum</button>  
+    <button type = "button" id = "meninyNameInputSubmit">nájdi datum</button>  
     
     <p id ="meninyNameInputResult"></p>
 
@@ -68,7 +68,7 @@ class Meniny extends HTMLElement{
 
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
-            let url = "/res/xml/meniny.xml";
+            let url = "../res/xml/meniny.xml";
             xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 xmlDoc = this.responseXML;

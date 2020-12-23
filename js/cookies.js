@@ -46,7 +46,8 @@ function setCookie(cname,cvalue,exdays) {
   visitTemplate.innerHTML = 
   `   <div>
         <span id="visitCounter"></span>
-      </div> `
+      </div>
+      <style> @import "../css/style.css"; </style> `
 
   class VisitCounter extends HTMLElement{
     constructor(){

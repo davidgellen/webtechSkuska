@@ -1,0 +1,33 @@
+<<<<<<< HEAD
+=======
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+body{
+    background-image: url("../res/images/worldmap.jpg");
+    background-size: 1300px auto;
+}
+
+.maxWidth{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
+    background-color: rgba(255, 255, 255, 0.603);
+}
+
+.custom-header{
+    border-bottom: 0.5px solid red;
+    margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.411);
+    padding: 1rem;
+}
+
+h1{
+    font-weight: bolder;
+}
+
+>>>>>>> css-z
