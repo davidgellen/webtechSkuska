@@ -1,0 +1,15 @@
+ footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	background-color: black;
+	/*border-style: solid;*/
+	border-width: 3px;
+	border-style: outset;
+	border-color: white;
+	margin: 5px 0px;
+	padding: 10px 0px;
+	color: red;
+} 
