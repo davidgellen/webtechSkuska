@@ -1,0 +1,196 @@
+h2{
+    display: inline-block;
+    border-bottom: 8px solid black;
+}
+button{
+    margin-left: 10%;
+}
+
+#gametext{
+    color: white;
+}
+
+#container1 {
+    margin-top: 17%;
+    margin-left: 5%;
+    width: 10%;
+    height: 25%;
+    position: absolute;
+    
+}
+#container2 {
+    margin-top: 21%;
+    margin-left: 2.5%;
+    width: 5%;
+    height: 15%;
+    position: absolute;
+    
+}
+#container3 {
+    margin-top: 20%;
+    margin-left: 11.5%;
+    width: 12%;
+    height: 25%;
+    position: absolute;
+    
+}
+#container4 {
+    margin-top: 15%;
+    margin-left: 20%;
+    width: 17%;
+    height: 23%;
+    position: absolute;
+    
+}
+#container5 {
+    margin-top: 5%;
+    margin-left: 35%;
+    width: 25%;
+    height: 15%;
+    position: absolute;
+    
+}
+#container6 {
+    margin-top: 14%;
+    margin-left: 35%;
+    width: 25%;
+    height: 14%;
+    position: absolute;
+    
+}
+#container7 {
+    margin-top: 7%;
+    margin-left: 9%;
+    width: 13%;
+    height: 22%;
+    position: absolute;
+    
+}
+#container8 {
+    margin-top: 2%;
+    margin-left: 18%;
+    width: 17%;
+    height: 23%;
+    position: absolute;
+    
+}
+  
+/*body {
+  position: absolute;
+}
+*/
+#win{
+  margin-left: 17%;
+  margin-top: 12%;
+  position: absolute;
+  font-size: 90px;
+  color: red;
+  z-index: 2;
+}
+
+#borders {
+    /* margin-top: 50%; */
+    width: 75vw;
+    height: 40vw;
+    background-size: cover;
+    position: relative;
+    background-image: url("../res/images/Peter-hra/sr_prazdne_hranice.jpg");
+    background-repeat: no-repeat;
+  
+}
+#tt{
+    position: absolute;
+    height: 21.5vw;
+    width: 14vw;
+    
+    top: 50vw;
+    left: 0vw;
+    
+    
+}
+#ba{
+    position: absolute;
+    height: 12vw;
+    width: 9vw;
+    
+    top: 50vw;
+    left: 17vw;
+    
+}
+#bb{
+    position: absolute;
+    height: 16.9vw;
+    width: 25.5vw;
+    
+    top: 50vw;
+    left: 30vw;
+    
+}
+#tn{
+    position: absolute;
+    height: 16vw;
+    width: 18.30vw;
+    
+    top: 40vw;
+    left: 60vw;
+    
+}
+#za{
+    position: absolute;
+    height: 17vw;
+    width: 21.5vw;
+    
+    top: 75vw;
+    left: 0vw;
+    
+}
+#nr{
+    position: absolute;
+    height: 19vw;
+    width: 17.8vw;
+    
+    top: 74vw;
+    left: 65vw;
+    
+}
+#pe{
+    position: absolute;
+    height: 13vw;
+    width: 33.25vw;
+    
+    top: 75vw;
+    left: 25vw;
+    
+}
+#ke{
+    position: absolute;
+    height: 13.25vw;
+    width: 27.5vw;
+    
+    
+    top: 60vw;
+    left: 60vw;
+    
+}
+h2 {
+  margin-left: 45%;
+}
+
+aside{
+    position: relative;
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    
+}
+
+#timer{
+    position: relative;
+    margin-left: 10%;
+    font-size: 30px;
+}
+
+.ui-draggable-dragging{
+    z-index: 99999;
+}
+
