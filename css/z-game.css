@@ -1,0 +1,173 @@
+body{
+    background-image: url("../res/images/bg-z-game.jpg");
+    background-size: 1200px auto;
+}
+
+.custom-header{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.maxWidth{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
+    background-color: rgba(255, 255, 255, 0.863);
+}
+
+#southAmerica{
+    width: 60%;
+    background-position: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.country{
+    position: absolute;
+    z-index: 5;
+}
+
+.relative{
+    position: relative;
+}
+
+.country-pos{
+    z-index: 1;
+    position: absolute;
+}
+
+
+#colombia-div{
+    height: 10%;
+    width: 13%;
+    top: 9%;
+    left: 25%;
+}
+
+#ecuador-peru-div1{
+    height: 15%;
+    width: 12%;
+    top: 19%;
+    left: 20%;
+}
+
+#ecuador-peru-div2{
+    height: 12%;
+    width: 10%;
+    top: 33%;
+    left: 27%;
+}
+
+#venezuela-div{
+    height: 10%;
+    width: 13%;
+    top: 3%;
+    left: 35%;
+}
+
+#gu-sur-fgu-div{
+    height: 8%;
+    width: 12%;
+    top: 8%;
+    left: 47%;
+}
+
+#brasil-div1{
+    height: 17%;
+    width: 45%;
+    top: 17%;
+    right: 20%;
+}
+
+#brasil-div2{
+    height: 25%;
+    width: 24%;
+    top: 33%;
+    right: 23%;
+}
+
+#bolivia-div{
+    height: 15%;
+    width: 11%;
+    top: 35%;
+    left: 37%;
+}
+
+#paraguay-div{
+    height: 11%;
+    width: 7%;
+    bottom: 42%;
+    left: 47%;
+}
+
+#uruguay-div{
+    height: 6%;
+    width: 6%;
+    bottom: 30%;
+    right: 45%;
+}
+
+#argentina-div{
+    height: 42%;
+    width: 12%;
+    bottom: 5%;
+    left: 37%;
+}
+
+#chile-div{
+    height: 46%;
+    width: 5%;
+    bottom: 5%;
+    left: 32%;
+}
+
+#argentina{
+    width: 24%;
+    transform: rotate(1deg);
+}
+
+#bolivia{
+    width: 17.5%;
+    transform: rotate(2deg);
+}
+
+#brasil{
+    width: 50%;
+    transform: rotate(2deg);
+}
+
+#paraguay{
+    width: 16%;
+}
+
+#colombia{
+    width: 17%;
+    transform: rotate(2deg);
+}
+
+#uruguay{
+    width: 10%;
+}
+
+#ecuador-peru{
+    width: 22%;
+}
+
+#venezuela{
+    width: 19%;
+}
+
+#gu-sur-fgu{
+    width: 19%;
+}
+
+#chile{
+    width: 17%;
+    transform: rotate(1deg);
+}
+
