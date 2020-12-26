@@ -1,6 +1,11 @@
 // robene kniznicou pixi.js
 // nazorny priklad: http://scottmcdonnell.github.io/pixi-examples/index.html?s=demos&f=dragging.js&title=Dragging 
 
+// ulozene udaje o obrazkoch
+// v podstate je to xmlko ...
+// x1, x2, y1, y2 definuju stvorec kde je obrazok dropnutelny
+// x, y su suradnice kam sa presne dropne (nie je to vzdy stred toho "stvorca", preto nepouzivam napr. funkciu average)
+
 const kraje = [
     {
         name: "BA",
@@ -45,12 +50,13 @@ const kraje = [
 ]
 
 var matched = 0;
+// base setup pre pixi
 
 var renderer = PIXI.autoDetectRenderer(550, 300);
 document.getElementById("game").appendChild(renderer.view);
 var stage = new PIXI.Container();
 
-function createKraje() {
+function createKraje(){ // postupne prida do stageu obrazky zo sourcu
     let randomKrajeArray = shuffleArray(kraje);
     for (let i = 0; i < randomKrajeArray.length; i++){
         let kraj = PIXI.Texture.from(randomKrajeArray[i].src);
@@ -59,31 +65,10 @@ function createKraje() {
     }
 }
 
-function createBackground(){
-    let countryTexture = PIXI.Texture.from("../res/imagesHraDavid/SKblank.png");
-    let country = new PIXI.Sprite(countryTexture);
-    country.position.x = 5;
-    country.position.y = 11;
-    stage.addChild(country);
-}
-
-function setUpDragEvents(kraj){
-    kraj.on('mousedown', onDragStart);
-    kraj.on('touchstart', onDragStart);
-    kraj.on('mouseup', onDragEnd);
-    kraj.on('mouseupoutside', onDragEnd);
-    kraj.on('touchend', onDragEnd);
-    kraj.on('touchendoutside', onDragEnd);
-    kraj.on('mousemove', onDragMove);
-    kraj.on('touchmove', onDragMove);
-}
-
-function createKraj(x, y, texture, dropArea)
-{
+function createKraj(x, y, texture, dropArea){
     let kraj = new PIXI.Sprite(texture);
     kraj.dropArea = dropArea;
     kraj.interactive = true;
-    kraj.buttonMode = true;
     kraj.anchor.set(0.5); // nech to je na strede
     setUpDragEvents(kraj);
     kraj.position.x = x;
@@ -91,39 +76,63 @@ function createKraj(x, y, texture, dropArea)
     stage.addChild(kraj);
 }
 
-requestAnimationFrame(animate);
+function createBackground(){ // hranice
+    let countryTexture = PIXI.Texture.from("../res/imagesHraDavid/SKblank.png");
+    let country = new PIXI.Sprite(countryTexture);
+    country.position.x = 5;
+    country.position.y = 11;
+    stage.addChild(country);
+}
 
-function animate() {
+function setUpDragEvents(kraj){ // drag eventy
+    // desktop
+    kraj.on('mousedown', onDragStart);
+    kraj.on('mouseup', onDragEnd);
+    kraj.on('mouseupoutside', onDragEnd);
+    kraj.on('mousemove', onDragMove);
+    // touchscreen
+    kraj.on('touchstart', onDragStart);
+    kraj.on('touchend', onDragEnd);
+    kraj.on('touchendoutside', onDragEnd);
+    kraj.on('touchmove', onDragMove);
+}
+
+// default funkcie pre dragging v pixi + funkcionalita k hre
+
+requestAnimationFrame(animate); 
+
+function animate(){ // vyrenderuje stage v rendereri, bez tohto sa tam nic nezobrazi
     requestAnimationFrame(animate);
     renderer.render(stage);
 }
 
-function onDragStart(event)
-{
+function onDragStart(event){
     this.data = event.data;
     this.dragging = true;
 }
 
-function onDragEnd()
-{
+function onDragEnd(){
     console.log(this.data.global["x"].toString() +" " + this.data.global["y"].toString());
-    if(isInPlace(this)){
-        this.position.x = this.dropArea.x;
-        this.position.y = this.dropArea.y;
-        this.interactive = false;
+    if(isInPlace(this)){ // koniec hry
+        putInDropArea(this);
         matched++;
         if(gameOver()){
             console.log("GAMEOVER");
-            showGameOverText();
+            showGameOverSuccessText();
             stopClock();
         }
     }
-    this.dragging = false;
+    this.dragging = false; // musi byt
     this.data = null;
 }
 
-function onDragMove()
-{
+function putInDropArea(kraj){
+    kraj.position.x = kraj.dropArea.x;
+    kraj.position.y = kraj.dropArea.y;
+    kraj.interactive = false;
+}
+
+function onDragMove(){ // bez tohto sa poloha neupdatuje
     if (this.dragging) {
         let newPosition = this.data.getLocalPosition(this.parent);
         this.position.x = newPosition.x;
@@ -131,7 +140,9 @@ function onDragMove()
     }
 }
 
-function shuffleArray(array) { // nech je to na zaciatku rozhadzane
+// nejake pomocne funkcie
+
+function shuffleArray(array){ // nech je to na zaciatku rozhadzane
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         let temp = array[i];
@@ -141,7 +152,7 @@ function shuffleArray(array) { // nech je to na zaciatku rozhadzane
     return array;
 }
 
-function isInPlace(kraj){
+function isInPlace(kraj){ // test ci je kraj v dropArei
     if (kraj.dropArea.x1 <= kraj.position.x && kraj.dropArea.x2 >= kraj.position.x 
         && kraj.dropArea.y1 <= kraj.position.y && kraj.dropArea.y2 >= kraj.position.y){
             return true;
@@ -150,7 +161,7 @@ function isInPlace(kraj){
 }
 
 function average(n1, n2){
-    return Math.floor((n1+n2)/2);
+    return Math.floor((n1 + n2)/2);
 }
 
 function gameOver(){
@@ -160,21 +171,19 @@ function gameOver(){
     return false;
 }
 
-function showGameOverText(){
+function showGameOverSuccessText(){
     let text = new PIXI.Text('Hra dokončená',{fontFamily : 'Arial', fontSize: 50, fill : 0xff1010, });
     text.position.x = 100;
     text.position.y = 100;
     stage.addChild(text);
 }
 
-
 // stopky
-// https://tinloof.com/blog/how-to-build-a-stopwatch-with-html-css-js-react-part-2/
 
 var startTime;
 var timerInterval;
 
-function timeToString(time) { // matika s casom
+function timeToString(time){ // matika s casom
     let hours = time / 3600000;
     let roundHours = Math.floor(hours);
     let minutes = (hours - roundHours) * 60;
@@ -186,12 +195,12 @@ function timeToString(time) { // matika s casom
     return minutesString + " : " + secondsString;
 }
 
-function printTime() {
+function printTime(){
     elapsedTime = Date.now() - startTime;
     document.getElementById("gameTime").innerHTML = timeToString(elapsedTime);
 }
 
-function startClock() {
+function startClock(){
     startTime = Date.now();
     timerInterval = setInterval(printTime, 1000);
 }
@@ -199,6 +208,8 @@ function startClock() {
 function stopClock(){
     clearInterval(timerInterval);
 }
+
+// reset/zacatie hry
 
 document.getElementById("playBtn").onclick = function() {
     startGame();
@@ -220,6 +231,51 @@ function startGame(){
     createBackground();
     createKraje();
     startClock();
+}
+
+// "demo"
+
+function sleep(ms){
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function autoFillStage(){
+    for (let i = 1; i < stage.children.length; i++){ // 0. prvok je background, posledny je text ked skonci hra
+        let kraj = stage.children[i];
+        if (kraj.interactive){
+            await sleep(500);
+            putInDropArea(kraj);
+            console.log(stage.children[i].dropArea);
+        }
+    }
+}
+  
+function autoFillGame(){
+    stopClock();
+    let givenUp = hasGivenUp();
+    console.log("givenUp:" + givenUp);
+    autoFillStage();
+    if (givenUp){
+        showGameOverFailureText();
+    }
+}
+
+function showGameOverFailureText(){
+    let text = new PIXI.Text('Neplatný pokus',{fontFamily : 'Arial', fontSize: 50, fill : 0xff1010, });
+    text.position.x = 100;
+    text.position.y = 100;
+    stage.addChild(text);
+}
+
+function hasGivenUp(){
+    if (gameOver()){
+        return false;
+    }
+    return true;
+}
+
+document.getElementById("demoBtn").onclick = function(){
+    autoFillGame();
 }
 
 /*function getTrueWidthRatio(origX){ // prepocet kvoli responzivite
