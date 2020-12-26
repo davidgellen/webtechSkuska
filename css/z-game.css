@@ -1,6 +1,6 @@
 body{
     background-image: url("../res/images/bg-z-game.jpg");
-    background-size: 1200px auto;
+    background-size: 1300px auto;
 }
 
 .custom-header{
@@ -11,6 +11,7 @@ body{
 
 .maxWidth{
     max-width: 1200px;
+    min-height: 1100px;
     margin: 0 auto;
     padding: 0.5rem 2rem;
     background-color: rgba(255, 255, 255, 0.863);
@@ -129,45 +130,65 @@ body{
 #argentina{
     width: 24%;
     transform: rotate(1deg);
+    top: 100%;
+    left: 0%;
 }
 
 #bolivia{
     width: 17.5%;
     transform: rotate(2deg);
+    top: 100%;
+    left: 70%;
 }
 
 #brasil{
     width: 50%;
     transform: rotate(2deg);
+    top: 100%;
+    left: 20%;
 }
 
 #paraguay{
     width: 16%;
+    top: 138%;
+    left: 10%;
 }
 
 #colombia{
     width: 17%;
     transform: rotate(2deg);
+    top: 140%;
+    left: 60%;
 }
 
 #uruguay{
     width: 10%;
+    top: 150%;
+    left: 50%;
 }
 
 #ecuador-peru{
     width: 22%;
+    top: 125%;
+    left: 18%;
 }
 
 #venezuela{
     width: 19%;
+    top: 127%;
+    left: 65%;
 }
 
 #gu-sur-fgu{
     width: 19%;
+    top: 98%;
+    left: 53%;
 }
 
 #chile{
     width: 17%;
     transform: rotate(1deg);
+    top: 100%;
+    left: 80%;
 }
 
