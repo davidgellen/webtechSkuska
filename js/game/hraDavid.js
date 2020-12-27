@@ -1,67 +1,62 @@
 // robene kniznicou pixi.js
 // nazorny priklad: http://scottmcdonnell.github.io/pixi-examples/index.html?s=demos&f=dragging.js&title=Dragging 
 
-// ulozene udaje o obrazkoch
-// v podstate je to xmlko ...
 // x1, x2, y1, y2 definuju stvorec kde je obrazok dropnutelny
 // x, y su suradnice kam sa presne dropne (nie je to vzdy stred toho "stvorca", preto nepouzivam napr. funkciu average)
+// ukazalo sa ze existuje nieco ako hitArea ... vela roboty by sa usetrilo ...
 
 const kraje = [
     {
-        name: "BA",
-        src: "../res/imagesHraDavid/baKraj.png",
-        drop: {x1: 0, x2: 67, y1: 160, y2: 220, x: 44, y: 190}
+        src: "../res/imagesHraDavid/finskoBrown.png",
+        drop: {x1: 93.5, x2: 171.5, y1: 11, y2: 106, x: 126.5, y: 63}
     },
     {
-        name: "TT",
-        src:  "../res/imagesHraDavid/ttKraj.png",
-        drop: {x1: 47, x2: 97, y1: 128, y2: 257, x: 69, y: 191}
+        src:  "../res/imagesHraDavid/finskoLightBlue.png",
+        drop: {x1: 103.5, x2: 121.5, y1: 82, y2: 153, x: 113.5, y: 120}
     },
     {
-        name: "TR",
-        src:  "../res/imagesHraDavid/trKraj.png",
-        drop: {x1: 71, x2: 170, y1: 80, y2: 146, x: 128, y: 111}
+        src:  "../res/imagesHraDavid/finskoRed.png",
+        drop: {x1: 88.5, x2: 194.5, y1: 86.5, y2: 237, x: 126.5, y: 204}
     },
     {
-        name: "NR",
-        src:  "../res/imagesHraDavid/nrKraj.png",
-        drop: {x1: 106, x2: 177, y1: 175, y2: 260, x: 153, y: 208}
+        src:  "../res/imagesHraDavid/finskoPurple.png",
+        drop: {x1: 51.5, x2: 111.5, y1: 306, y2: 341, x: 83.5, y: 318}
     },
     {
-        name: "ZI",
-        src:  "../res/imagesHraDavid/ziKraj.png",
-        drop: {x1: 171, x2: 283, y1: 30, y2: 119, x: 231, y: 75}
+        src:  "../res/imagesHraDavid/finskoYellow.png",
+        drop: {x1: 93.5, x2: 134.5, y1: 268, y2: 338, x: 115, y: 313}
     },
     {
-        name: "BB",
-        src:  "../res/imagesHraDavid/bbKraj.png",
-        drop: {x1: 172, x2: 313, y1: 128, y2: 227, x: 254, y: 170}
+        src:  "../res/imagesHraDavid/finskoDarkPurple.png",
+        drop: {x1: 136.5, x2: 183.5, y1: 269, y2: 353, x: 168, y: 303}
     },
     {
-        name: "PR",
-        src:  "../res/imagesHraDavid/prKraj.png",
-        drop: {x1: 317, x2: 498, y1: 51, y2: 100, x: 411, y: 84}
+        src:  "../res/imagesHraDavid/finskoOrange.png",
+        drop: {x1: 186, x2: 259, y1: 275, y2: 364, x: 215, y: 314}
     },
     {
-        name: "KE",
-        src:  "../res/imagesHraDavid/keKraj.png",
-        drop: {x1: 335, x2: 491, y1: 122, y2: 171, x: 419, y: 146}
+        src: "../res/imagesHraDavid/finskoBlue.png",
+        drop: {x1: 41, x2: 85, y1: 352, y2: 400, x: 63, y: 371}
     },
+    {
+        src:  "../res/imagesHraDavid/finskoGreen.png",
+        drop: {x1: 77, x2: 157, y1: 368, y2: 395, x: 118, y: 379}
+    }    
 ]
 
 var matched = 0;
 // base setup pre pixi
 
-var renderer = PIXI.autoDetectRenderer(550, 300);
+var renderer = PIXI.autoDetectRenderer(500, 404);
+renderer.backgroundColor = 0xC0C0C0;
 document.getElementById("game").appendChild(renderer.view);
 var stage = new PIXI.Container();
 
-function createKraje(){ // postupne prida do stageu obrazky zo sourcu
+function createKraje(){ // postupne prida do stageu obrazky zo sourcu na pravo od mapy
     let randomKrajeArray = shuffleArray(kraje);
     for (let i = 0; i < randomKrajeArray.length; i++){
         let kraj = PIXI.Texture.from(randomKrajeArray[i].src);
-        //kraje.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
-        createKraj(Math.floor(Math.random() * 500) , Math.floor(Math.random() * 250), kraj, randomKrajeArray[i].drop);
+        createKraj(250 +Math.floor(Math.random() * 250) , Math.floor(50 + Math.random() * 400), kraj, randomKrajeArray[i].drop);
     }
 }
 
@@ -69,7 +64,7 @@ function createKraj(x, y, texture, dropArea){
     let kraj = new PIXI.Sprite(texture);
     kraj.dropArea = dropArea;
     kraj.interactive = true;
-    kraj.anchor.set(0.5); // nech to je na strede
+    kraj.anchor.set(0.5); // nech to je na strede ukotvene
     setUpDragEvents(kraj);
     kraj.position.x = x;
     kraj.position.y = y;
@@ -77,10 +72,10 @@ function createKraj(x, y, texture, dropArea){
 }
 
 function createBackground(){ // hranice
-    let countryTexture = PIXI.Texture.from("../res/imagesHraDavid/SKblank.png");
+    let countryTexture = PIXI.Texture.from("../res/imagesHraDavid/finskoBLANK (2).png");
     let country = new PIXI.Sprite(countryTexture);
-    country.position.x = 5;
-    country.position.y = 11;
+    country.position.x = 0;
+    country.position.y = 0;
     stage.addChild(country);
 }
 
@@ -112,7 +107,6 @@ function onDragStart(event){
 }
 
 function onDragEnd(){
-    console.log(this.data.global["x"].toString() +" " + this.data.global["y"].toString());
     if(isInPlace(this)){ // koniec hry
         putInDropArea(this);
         matched++;
@@ -122,6 +116,7 @@ function onDragEnd(){
             stopClock();
         }
     }
+    console.log(this.data.global["x"].toString() +" " + this.data.global["y"].toString());
     this.dragging = false; // musi byt
     this.data = null;
 }
@@ -172,9 +167,9 @@ function gameOver(){
 }
 
 function showGameOverSuccessText(){
-    let text = new PIXI.Text('Hra dokončená',{fontFamily : 'Arial', fontSize: 50, fill : 0xff1010, });
-    text.position.x = 100;
-    text.position.y = 100;
+    let text = new PIXI.Text('Hra dokončená',{fontFamily : 'Arial', fontSize: 50, fill : 0x000000, });
+    text.position.x = 95;
+    text.position.y = 175;
     stage.addChild(text);
 }
 
@@ -185,14 +180,12 @@ var timerInterval;
 
 function timeToString(time){ // matika s casom
     let hours = time / 3600000;
-    let roundHours = Math.floor(hours);
-    let minutes = (hours - roundHours) * 60;
-    let roundMinutes = Math.floor(minutes);
-    let seconds = (minutes - roundMinutes) * 60;
-    let roundSeconds = Math.floor(seconds);
-    let minutesString = roundMinutes.toString().padStart(2, "0");
-    let secondsString = roundSeconds.toString().padStart(2, "0");
-    return minutesString + " : " + secondsString;
+    let flooredHours = Math.floor(hours);
+    let minutes = (hours - flooredHours) * 60;
+    let flooredMinutes = Math.floor(minutes);
+    let seconds = (minutes - flooredMinutes) * 60;
+    let flooredSeconds = Math.floor(seconds);
+    return flooredMinutes.toString().padStart(2, "0") + " : " + flooredSeconds.toString().padStart(2, "0"); // inac je tam 0:0
 }
 
 function printTime(){
@@ -226,6 +219,7 @@ function clearScore(){
 }
 
 function startGame(){
+    document.getElementById("gameTime").innerHTML = "00 : 00";
     clearScore();
     clearStage();
     createBackground();
@@ -252,7 +246,7 @@ async function autoFillStage(){
   
 function autoFillGame(){
     stopClock();
-    let givenUp = hasGivenUp();
+    let givenUp = hasGivenUp(); // aby sa nezobrazili texty cez seba
     console.log("givenUp:" + givenUp);
     autoFillStage();
     if (givenUp){
@@ -261,7 +255,7 @@ function autoFillGame(){
 }
 
 function showGameOverFailureText(){
-    let text = new PIXI.Text('Neplatný pokus',{fontFamily : 'Arial', fontSize: 50, fill : 0xff1010, });
+    let text = new PIXI.Text('Neplatný pokus',{fontFamily : 'Arial', fontSize: 50, fill : 0x000000, outline: 0x000000});
     text.position.x = 100;
     text.position.y = 100;
     stage.addChild(text);
