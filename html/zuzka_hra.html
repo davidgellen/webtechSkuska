@@ -23,7 +23,9 @@
                 <h1 class="text-center">Južná Amerika</h1>
             </div>
             <div id="time-div" class="row pb-2 justify-content-center">
-                <p id="stopwatch" class="col col-md-2 text-center"><time>00:00:00</time></p>
+                <button type="button" id="play" class="btn btn-primary col-3 col-md-2 text-center">HRAŤ</button>
+                <p id="stopwatch" class="col-3 col-md-2 text-center"><time>00:00:00</time></p>
+                <button type="button" id="demo" class="btn btn-dark col-3 col-md-2 text-center">DEMO</button>
             </div>
             <div class="row justify-content-md-center">
                 <div class="col col-md-8 text-center">
@@ -45,16 +47,16 @@
                     <div id="uruguay-div" class="country-pos"></div>
                     <div id="argentina-div" class="country-pos"></div>
                     <div id="chile-div" class="country-pos"></div>
-                    <img id="argentina" class="country argentina-new-pos" src="../res/images/countries/argentina.png" alt="Argentina">
-                    <img id="bolivia" class="country bolivia-new-pos" src="../res/images/countries/bolivia.png" alt="Bolivia">
-                    <img id="brasil" class="country brasil-new-pos" src="../res/images/countries/brasil.png" alt="Brasil">
-                    <img id="colombia" class="country colombia-new-pos" src="../res/images/countries/colombia.png" alt="Colombia">
-                    <img id="ecuador-peru" class="country ecuador-peru-new-pos" src="../res/images/countries/ecuadorPeru.png" alt="Ecuador and Peru">
-                    <img id="gu-sur-fgu" class="country gu-sur-fgu-new-pos" src="../res/images/countries/GuyanaFGuyanaSuriname.png" alt="Guyana, Surinami, French Guyana">
-                    <img id="chile" class="country chile-new-pos" src="../res/images/countries/chile.png" alt="Chile">
-                    <img id="paraguay" class="country paraguay-new-pos" src="../res/images/countries/paraguay.png" alt="Paraguay">
-                    <img id="uruguay" class="country uruguay-new-pos" src="../res/images/countries/uruguay.png" alt="Uruguay">
-                    <img id="venezuela" class="country venezuela-new-pos" src="../res/images/countries/venezuela.png" alt="Venezuela">
+                    <img id="argentina" class="country" src="../res/images/countries/argentina.png" alt="Argentina">
+                    <img id="bolivia" class="country" src="../res/images/countries/bolivia.png" alt="Bolivia">
+                    <img id="brasil" class="country" src="../res/images/countries/brasil.png" alt="Brasil">
+                    <img id="colombia" class="country" src="../res/images/countries/colombia.png" alt="Colombia">
+                    <img id="ecuador-peru" class="country" src="../res/images/countries/ecuadorPeru.png" alt="Ecuador and Peru">
+                    <img id="gu-sur-fgu" class="country" src="../res/images/countries/GuyanaFGuyanaSuriname.png" alt="Guyana, Surinami, French Guyana">
+                    <img id="chile" class="country" src="../res/images/countries/chile.png" alt="Chile">
+                    <img id="paraguay" class="country" src="../res/images/countries/paraguay.png" alt="Paraguay">
+                    <img id="uruguay" class="country" src="../res/images/countries/uruguay.png" alt="Uruguay">
+                    <img id="venezuela" class="country" src="../res/images/countries/venezuela.png" alt="Venezuela">
                 </div>
             </div>
             
@@ -64,6 +66,7 @@
     <script src="../js/breadcrumbs.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
     <script src="../js/z-game.js"></script>
 </body>
 </html>

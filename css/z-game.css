@@ -1,12 +1,12 @@
 body{
-    background-image: url("../res/images/bg-z-game.jpg");
+    background-image: url("../res/images/worldmap.jpg");
     background-size: 1300px auto;
 }
 
 .custom-header{
     margin-bottom: 1rem;
     padding: 1rem;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid red;
 }
 
 .maxWidth{
@@ -22,6 +22,12 @@ body{
     background-position: center;
     display: block;
     margin: 0 auto;
+}
+
+#demo, #play{
+    max-width: 70px;
+    max-height: 30px;
+    font-size: small;
 }
 
 .text-center{
@@ -129,21 +135,18 @@ body{
 
 #argentina{
     width: 24%;
-    transform: rotate(1deg);
     top: 100%;
     left: 0%;
 }
 
 #bolivia{
     width: 17.5%;
-    transform: rotate(2deg);
     top: 100%;
     left: 70%;
 }
 
 #brasil{
-    width: 50%;
-    transform: rotate(2deg);
+    width: 52%;
     top: 100%;
     left: 20%;
 }
@@ -158,11 +161,11 @@ body{
     width: 17%;
     transform: rotate(2deg);
     top: 140%;
-    left: 60%;
+    left: 59%;
 }
 
 #uruguay{
-    width: 10%;
+    width: 11%;
     top: 150%;
     left: 50%;
 }
