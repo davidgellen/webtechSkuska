@@ -1,4 +1,9 @@
-
+#gametext{
+    background-color: black;
+}
+#start{
+    margin-left: 43%;
+}
 button{
     margin-left: 10%;
 }
@@ -95,13 +100,17 @@ button{
     z-index: 2;
 }
 
+
+
+
+
 #borders {
-    margin-left: 10%;
+    
     width: 75vw;
     height: 40vw;
     background-size: cover;
     position: relative;
-    background-image: url("../webtechSkuska/res/imagesHraPeter/sr_prazdne_hranice.jpg");
+    /* background-image: url("../"); */
     background-repeat: no-repeat;
   
 }
@@ -138,7 +147,7 @@ button{
     height: 16vw;
     width: 18.30vw;
     
-    top: 40vw;
+    top: 45vw;
     left: 60vw;
     
 }
@@ -176,13 +185,13 @@ button{
     
     
     top: 60vw;
-    left: 60vw;
+    left: 55vw;
     
 }
 h2 {
     margin-left: 45%;
     display: inline-block;
-    border-bottom: 8px solid white;
+    margin-bottom: 2%;
     color: red;
 }
 
@@ -196,15 +205,14 @@ aside{
 
 #timer{
     position: relative;
-    margin-left: 10%;
+    margin-left: 45%;
     font-size: 30px;
     color: red;
 }
+
 
 .ui-draggable-dragging{
     z-index: 99999;
 }
 
-p{
-    background-color: black;
-}
+

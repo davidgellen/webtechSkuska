@@ -17,10 +17,15 @@
       <link rel="stylesheet" href="../css/footerstyle.css">
   </head>
   <body>
+    <header class="custom-header">
       <menu-komponent></menu-komponent>
-      <set-breadcrumbs></set-breadcrumbs>
-      <h2>Drag and drop game</h2>
+    </header>
+    
+    <h2>Drag and drop game</h2>
 
+      
+    <div class="maxWidth container" >
+      <set-breadcrumbs></set-breadcrumbs>
       <div id="timer">
         <span id="hours">00:</span>
         <span id="mins">00:</span>
@@ -29,7 +34,8 @@
     
       <button id="start" onclick="startGame()">Start</button>
       <button onclick="gameDemo()">Demo</button>
-      
+    
+    
     
       <div id="win" style="display: none;">Vyhrali ste!</div>
       <div id="demotry" style="display: none;">Toto bol demo pokus, pre umožnenie začatia hry načítajte znovu stránku!</div>
@@ -41,42 +47,42 @@
               stlačte tlačidlo Demo. Po vykonaní demo ukážky je potrebné znovu načítať stránku, aby sa mohla spustiť hra.
           </p>
       </aside>
-      <div id="pomoc">
-        
-        <div id="borders">
-
-        <div id="container1"></div>
-        <div id="container2"></div>
-        <div id="container3"></div>
-        <div id="container4"></div>
-        <div id="container5"></div>
-        <div id="container6"></div>
-        <div id="container7"></div>
-        <div id="container8"></div> 
-    
-          <img id="tt" src="../res/imagesHraPeter/tt_kraj.png"></img>
-          <img id="ba" src="../res/imagesHraPeter/brat_kraj.png"></img>
-          <img id="bb" src="../res/imagesHraPeter/banskobystricky_kraj.png"></img>
-          <img id="tn" src="../res/imagesHraPeter/tn_kraj.png"></img>
-          <img id="za" src="../res/imagesHraPeter/Zilinsky kraj.png"></img>
-          <img id="pe" src="../res/imagesHraPeter/hadamok.png"></img>
-          <img id="ke" src="../res/imagesHraPeter/kosick_kraj.png"></img>
-          <img id="nr" src="../res/imagesHraPeter/nitriansky_kraj.png"></img>
-        </div>
-          
-        
-      </div>
-
-      <footer>	
-        <p>By using this site, you agree with our terms of use, cookies and privacy policy. Copyright 2020. All Rights Reserved.</p>
-        <p>Powered by HAKERMANS.</p>
-      </footer>
-    
       
-      <script src="../js/menu_script.js"></script>
-      <script src="../js/breadcrumbs.js"></script>
+        
+      <div id="borders" style="background-image: url(../res/imagesHraPeter/sr_prazdne_hranice.png);">
 
+      <div id="container1"></div>
+      <div id="container2"></div>
+      <div id="container3"></div>
+      <div id="container4"></div>
+      <div id="container5"></div>
+      <div id="container6"></div>
+      <div id="container7"></div>
+      <div id="container8"></div> 
+
+        <img id="tt" src="../res/imagesHraPeter/tt_kraj.png"></img>
+        <img id="ba" src="../res/imagesHraPeter/brat_kraj.png"></img>
+        <img id="bb" src="../res/imagesHraPeter/banskobystricky_kraj.png"></img>
+        <img id="tn" src="../res/imagesHraPeter/tn_kraj.png"></img>
+        <img id="za" src="../res/imagesHraPeter/Zilinsky kraj.png"></img>
+        <img id="pe" src="../res/imagesHraPeter/hadamok.png"></img>
+        <img id="ke" src="../res/imagesHraPeter/kosick_kraj.png"></img>
+        <img id="nr" src="../res/imagesHraPeter/nitriansky_kraj.png"></img>
+      </div>
+      
     
-      <script src="../js/game/hraPeter.js"></script>
+    </div>
+
+    <footer>	
+      <p>By using this site, you agree with our terms of use, cookies and privacy policy. Copyright 2020. All Rights Reserved.</p>
+      <p>Powered by HAKERMANS.</p>
+    </footer>
+  
+    
+    <script src="../js/menu_script.js"></script>
+    <script src="../js/breadcrumbs.js"></script>
+
+  
+    <script src="../js/game/hraPeter.js"></script>
   </body>
 </html>
