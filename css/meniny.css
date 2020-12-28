@@ -19,3 +19,12 @@
 	min-width: 50px;
 }
 
+#currentDate{
+	font-weight: bold;
+	font-size: larger;
+}
+
+#currentMeniny{
+	font-weight: bolder;
+}
+
