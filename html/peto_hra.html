@@ -27,11 +27,12 @@
         <span id="seconds">00</span>  
       </div>
     
-      <button onclick="startGame()">Start</button>
+      <button id="start" onclick="startGame()">Start</button>
       <button onclick="gameDemo()">Demo</button>
       
     
       <div id="win" style="display: none;">Vyhrali ste!</div>
+      <div id="demotry" style="display: none;">Toto bol demo pokus, pre umožnenie začatia hry načítajte znovu stránku!</div>
       <aside>
           <p id="gametext">Poskladajte Slovenskú republiku!
               Jednotlivé kraje presuňte na správne miesta. Ak bol kraj úspešne priradený miestu, nebude ho možné už ďalej presúvať.
@@ -41,6 +42,9 @@
           </p>
       </aside>
       <div id="pomoc">
+        
+        <div id="borders">
+
         <div id="container1"></div>
         <div id="container2"></div>
         <div id="container3"></div>
@@ -49,7 +53,6 @@
         <div id="container6"></div>
         <div id="container7"></div>
         <div id="container8"></div> 
-        <div id="borders">
     
           <img id="tt" src="../res/images/Peter-hra/tt_kraj.png"></img>
           <img id="ba" src="../res/images/Peter-hra/brat_kraj.png"></img>

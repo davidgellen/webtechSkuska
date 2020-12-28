@@ -10,16 +10,6 @@ var mins =0;
 var seconds =0;
 
 function startGame(){
-  if(demoWasStarted==1){
-    $('#nr').animate({top:"74vw",left:"65vw"});
-    $('#tt').animate({top:"50vw",left:"0vw"});
-    $('#ba').animate({top:"50vw",left:"17vw"});
-    $('#bb').animate({top:"14.3vw",left:"22.5vw"});
-    $('#pe').animate({top:"4.5vw",left:"40.25vw"});
-    $('#ke').animate({top:"12.5vw",left:"44.10vw"});
-    $('#tn').animate({top:"7vw",left:"8.75vw"});
-    $('#za').animate({top:"1.5vw",left:"21.25vw"});
-  }
   startTimer();
   $('#tt').draggable();
   $('#tn').draggable();
@@ -41,7 +31,8 @@ function gameDemo(){
   $('#tn').animate({top:"7vw",left:"8.75vw"});
   $('#za').animate({top:"1.5vw",left:"21.25vw"});
   demoWasStarted=1;
-
+  document.getElementById('start').disabled=true;
+  document.getElementById('demotry').style.display="block";
 };
 function startTimer(){
   timex = setTimeout(function(){
