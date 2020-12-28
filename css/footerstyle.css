@@ -1,7 +1,4 @@
  footer{
-	position: fixed;
-	left: 0;
-	bottom: 0;
 	width: 100%;
 	text-align: center;
 	background-color: black;
@@ -10,6 +7,7 @@
 	border-style: outset;
 	border-color: white;
 	margin: 5px 0px;
+	margin-top: 60%;
 	padding: 10px 0px;
 	color: red;
 } 
