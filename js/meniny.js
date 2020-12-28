@@ -14,6 +14,8 @@ const templateMeniny = document.createElement("template");
 templateMeniny.innerHTML = `
 <p id = "currentDate"></p>
 
+    <style> @import "../css/meniny.css"; </style>
+
     <p id = "currentMeninyParagprah">Dnes má meniny: <span id = "currentMeniny"></span></p>
 
     <p>----------------------------------------------------------------------------</p>
@@ -23,10 +25,10 @@ templateMeniny.innerHTML = `
 
     <select name="countrySelect" id="countrySelect">
         <option value="SKd">Slovensko</option>
-        <option value="CZ">Cesko</option>
-        <option value="HU">Madari</option>
-        <option value="PL">Polska</option>
-        <option value="AT">Rakusko</option>
+        <option value="CZ">Česko</option>
+        <option value="HU">Maďarsko</option>
+        <option value="PL">Poľsko</option>
+        <option value="AT">Rakúsko</option>
     </select>
 
     <button type = "button" id = "meninyDateInputSubmit">nájdi meno</button>   
@@ -44,10 +46,8 @@ templateMeniny.innerHTML = `
 
     <p>----------------------------------------------------------------------------</p>
 
-    <div class = "custom_tooltip">
-        <div class="tooltip_content" id="meniny_tooltip">
-            <p>Validné formáty: <br> dd.mm. <br> dd.m. <br> d.mm. <br> d.m.</p>
-        </div>
+    <div class="tooltip_content" id="meniny_tooltip">
+        <p>Validné formáty: <br> dd.mm. <br> dd.m. <br> d.mm. <br> d.m.</p>
     </div>
 `;
 
@@ -291,31 +291,6 @@ class Meniny extends HTMLElement{
         this.shadowRoot.querySelector("#meninyNameInputSubmit").onclick = function(){
             findDateFromMeniny();
         }
-
-        // pridanie csska
-
-        var style = document.createElement('style');
-        style.innerHTML = `
-        .custom_tooltip{
-            position: relative;
-            width: 10%;
-        }
-        
-        #meniny_tooltip{
-            visibility: visible;
-            background-color: black;
-            color: white;
-            position: relative;
-            border: 0.2vw solid red;
-            z-index: 5;
-            opacity: 0;
-            width: 100%;
-            font-size: 1vw;
-            text-align: center;
-            padding: 1vw;
-            transition: 0.6s;
-        }`;
-        this.shadowRoot.appendChild(style);
         
     }
 }
