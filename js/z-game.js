@@ -110,7 +110,8 @@ document.querySelector('#demo').onclick = function(){
             top: statesTruePosition.get(key).top + '%',
             left: statesTruePosition.get(key).left + '%'
         }, "slow");
-    }
+        $('#' + key).draggable("disable");
+    };
 };
 
 
