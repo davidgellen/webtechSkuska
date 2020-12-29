@@ -15,39 +15,52 @@ templateMeniny.innerHTML = `
 <p id = "currentDate"></p>
 
     <style> @import "../css/meniny.css"; </style>
+    <style> @import "../bootstrap-4.3.1-dist/css/bootstrap.min.css"; </style>
 
-    <p id = "currentMeninyParagprah">Dnes má meniny: <span id = "currentMeniny"></span></p>
+    <p id = "currentMeninyParagprah">Dnes má meniny (Slovensko): <span id = "currentMeniny"></span></p>
 
-    <p>----------------------------------------------------------------------------</p>
+    <div class="row">
+        <div class="mb-2 pt-2 pb-2 col-12 col-md-7 col-lg-6">
+            <select class="form-control" name="countrySelect" id="countrySelect">
+                <option value="SKd">Slovensko</option>
+                <option value="CZ">Česko</option>
+                <option value="HU">Maďarsko</option>
+                <option value="PL">Poľsko</option>
+                <option value="AT">Rakúsko</option>
+            </select>
+        </div>
+    </div><br>
 
     <label for="meninyDateInput">Dátum:</label>
-    <input type="text" id="meninyDateInput" name="meninyDateInput">
-
-    <select name="countrySelect" id="countrySelect">
-        <option value="SKd">Slovensko</option>
-        <option value="CZ">Česko</option>
-        <option value="HU">Maďarsko</option>
-        <option value="PL">Poľsko</option>
-        <option value="AT">Rakúsko</option>
-    </select>
-
-    <button type = "button" id = "meninyDateInputSubmit">nájdi meno</button>   
+    <div class="row">
+        <div class="pb-2 col-12 col-md-4">
+            <input type="text" class="form-control" id="meninyDateInput" name="meninyDateInput">
+        </div>
+        <div class="pb-2 col-8 col-md-3">
+            <button type = "button" class = "btn btn-secondary" id = "meninyDateInputSubmit">Nájdi meno</button>
+        </div>
+    </div>
+   
 
     <p id ="meninyDateInputResult"></p>
 
-    <p>----------------------------------------------------------------------------</p>
-
     <label for="meninyNameInput">Meno: </label>
-    <input type="text" id="meninyNameInput" name="meninyNameInput">
-
-    <button type = "button" id = "meninyNameInputSubmit">nájdi datum</button>  
+    <div class="row">
+        <div class="pb-2 col-12 col-md-4">
+            <input type="text" class="form-control" id="meninyNameInput" name="meninyNameInput">
+        </div>
+        <div class="pb-2 col-12 col-md-3">
+            <button type = "button" class = "btn btn-secondary" id = "meninyNameInputSubmit">Nájdi dátum</button>
+        </div>
+    </div>
+  
     
     <p id ="meninyNameInputResult"></p>
 
-    <p>----------------------------------------------------------------------------</p>
-
-    <div class="tooltip_content" id="meniny_tooltip">
-        <p>Validné formáty: <br> dd.mm. <br> dd.m. <br> d.mm. <br> d.m.</p>
+    <div class="row justify-content-center justify-content-md-start">
+        <div class="col-10 col-sm-5 col-md-3 tooltip_content" id="meniny_tooltip">
+            <p>Validné formáty: <br> dd.mm. <br> dd.m. <br> d.mm. <br> d.m.</p>
+        </div>
     </div>
 `;
 
@@ -140,11 +153,13 @@ class Meniny extends HTMLElement{
                         }
                         catch{}
                         meninyDateResult.innerHTML = result;
+                        meninyDateResult.style.color = "black";
                         break;
                     }    
                 }
             } else {
-                meninyDateResult.innerHTML = "nesprávny formát dátumu";
+                meninyDateResult.innerHTML = "Nesprávny formát dátumu!";
+                meninyDateResult.style.color = "red";
                 showTooltip();
             }
         }
@@ -179,6 +194,7 @@ class Meniny extends HTMLElement{
                         if (currentNames.includes(nameInput)){
                             meninyNameInputResult.innerHTML = transfromDenToDate(xmlDate);
                             found = true;
+                            meninyNameInputResult.style.color = "black";
                             break;
                         }
                     }
@@ -186,9 +202,11 @@ class Meniny extends HTMLElement{
                 } 
             }
             if (nameInput.length<1){
-                meninyNameInputResult.innerHTML = "nezadané meno"
+                meninyNameInputResult.innerHTML = "Nezadané meno!";
+                meninyNameInputResult.style.color = "red";
             } else if (!found) {
-                meninyNameInputResult.innerHTML = "nanašlo sa";
+                meninyNameInputResult.innerHTML = "Nenašlo sa.";
+                meninyNameInputResult.style.color = "red";
             }
         }
 

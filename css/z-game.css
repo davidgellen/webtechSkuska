@@ -1,0 +1,197 @@
+body{
+    background-image: url("../res/images/worldmap.jpg");
+    background-size: 1300px auto;
+}
+
+.custom-header{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid red;
+}
+
+.maxWidth{
+    max-width: 1200px;
+    min-height: 1100px;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
+    background-color: rgba(255, 255, 255, 0.863);
+}
+
+#southAmerica{
+    width: 60%;
+    background-position: center;
+    display: block;
+    margin: 0 auto;
+}
+
+#demo, #play{
+    max-width: 70px;
+    max-height: 30px;
+    font-size: small;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.country{
+    position: absolute;
+    z-index: 5;
+}
+
+.relative{
+    position: relative;
+}
+
+.country-pos{
+    z-index: 1;
+    position: absolute;
+}
+
+
+#colombia-div{
+    height: 10%;
+    width: 13%;
+    top: 9%;
+    left: 25%;
+}
+
+#ecuador-peru-div1{
+    height: 15%;
+    width: 12%;
+    top: 19%;
+    left: 20%;
+}
+
+#ecuador-peru-div2{
+    height: 12%;
+    width: 10%;
+    top: 33%;
+    left: 27%;
+}
+
+#venezuela-div{
+    height: 10%;
+    width: 13%;
+    top: 3%;
+    left: 35%;
+}
+
+#gu-sur-fgu-div{
+    height: 8%;
+    width: 12%;
+    top: 8%;
+    left: 47%;
+}
+
+#brasil-div1{
+    height: 17%;
+    width: 45%;
+    top: 17%;
+    right: 20%;
+}
+
+#brasil-div2{
+    height: 25%;
+    width: 24%;
+    top: 33%;
+    right: 23%;
+}
+
+#bolivia-div{
+    height: 15%;
+    width: 11%;
+    top: 35%;
+    left: 37%;
+}
+
+#paraguay-div{
+    height: 11%;
+    width: 7%;
+    bottom: 42%;
+    left: 47%;
+}
+
+#uruguay-div{
+    height: 6%;
+    width: 6%;
+    bottom: 30%;
+    right: 45%;
+}
+
+#argentina-div{
+    height: 42%;
+    width: 12%;
+    bottom: 5%;
+    left: 37%;
+}
+
+#chile-div{
+    height: 46%;
+    width: 5%;
+    bottom: 5%;
+    left: 32%;
+}
+
+#argentina{
+    width: 24%;
+    top: 100%;
+    left: 0%;
+}
+
+#bolivia{
+    width: 17.5%;
+    top: 100%;
+    left: 70%;
+}
+
+#brasil{
+    width: 52%;
+    top: 100%;
+    left: 20%;
+}
+
+#paraguay{
+    width: 16%;
+    top: 138%;
+    left: 10%;
+}
+
+#colombia{
+    width: 17%;
+    transform: rotate(2deg);
+    top: 140%;
+    left: 59%;
+}
+
+#uruguay{
+    width: 11%;
+    top: 150%;
+    left: 50%;
+}
+
+#ecuador-peru{
+    width: 22%;
+    top: 125%;
+    left: 18%;
+}
+
+#venezuela{
+    width: 19%;
+    top: 127%;
+    left: 65%;
+}
+
+#gu-sur-fgu{
+    width: 19%;
+    top: 98%;
+    left: 53%;
+}
+
+#chile{
+    width: 17%;
+    transform: rotate(1deg);
+    top: 100%;
+    left: 80%;
+}
+
