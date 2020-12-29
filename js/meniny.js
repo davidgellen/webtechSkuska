@@ -54,8 +54,8 @@ templateMeniny.innerHTML = `
     
     <p id ="meninyNameInputResult"></p>
 
-    <div class="row justify-content-sm-center">
-        <div class="col-10 col-sm-6 col-md-3 tooltip_content" id="meniny_tooltip">
+    <div class="row justify-content-center justify-content-md-start">
+        <div class="col-10 col-sm-5 col-md-3 tooltip_content" id="meniny_tooltip">
             <p>Validné formáty: <br> dd.mm. <br> dd.m. <br> d.mm. <br> d.m.</p>
         </div>
     </div>
