@@ -17,14 +17,10 @@ templateMeniny.innerHTML = `
     <style> @import "../css/meniny.css"; </style>
     <style> @import "../bootstrap-4.3.1-dist/css/bootstrap.min.css"; </style>
 
-    <p id = "currentMeninyParagprah">Dnes má meniny: <span id = "currentMeniny"></span></p>
+    <p id = "currentMeninyParagprah">Dnes má meniny (Slovensko): <span id = "currentMeniny"></span></p>
 
-    <label for="meninyDateInput">Dátum:</label>
     <div class="row">
-        <div class="pb-2 col-12 col-md-4">
-            <input type="text" class="form-control" id="meninyDateInput" name="meninyDateInput">
-        </div>
-        <div class="pb-2 col-12 col-md-3">
+        <div class="mb-2 pt-2 pb-2 col-12 col-md-7 col-lg-6">
             <select class="form-control" name="countrySelect" id="countrySelect">
                 <option value="SKd">Slovensko</option>
                 <option value="CZ">Česko</option>
@@ -32,6 +28,13 @@ templateMeniny.innerHTML = `
                 <option value="PL">Poľsko</option>
                 <option value="AT">Rakúsko</option>
             </select>
+        </div>
+    </div><br>
+
+    <label for="meninyDateInput">Dátum:</label>
+    <div class="row">
+        <div class="pb-2 col-12 col-md-4">
+            <input type="text" class="form-control" id="meninyDateInput" name="meninyDateInput">
         </div>
         <div class="pb-2 col-8 col-md-3">
             <button type = "button" class = "btn btn-secondary" id = "meninyDateInputSubmit">Nájdi meno</button>
