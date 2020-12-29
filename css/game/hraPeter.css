@@ -1,3 +1,15 @@
+h3{
+    margin-left: 35%;
+}
+#underimages{
+    /* background-color:  rgba(255, 255, 255, 0.603); */
+    border-radius: 3px;
+    border-color: black;
+    margin-top: 4%;
+    
+    height: 50vw;
+}
+
 #gametext{
     background-color: black;
 }
@@ -129,7 +141,7 @@ button{
     height: 12vw;
     width: 9vw;
     
-    top: 50vw;
+    top: 65vw;
     left: 17vw;
     
 }
@@ -139,7 +151,7 @@ button{
     width: 25.5vw;
     
     top: 50vw;
-    left: 30vw;
+    left: 20vw;
     
 }
 #tn{
@@ -148,7 +160,7 @@ button{
     width: 18.30vw;
     
     top: 45vw;
-    left: 60vw;
+    left: 50vw;
     
 }
 #za{
@@ -166,7 +178,7 @@ button{
     width: 17.8vw;
     
     top: 74vw;
-    left: 65vw;
+    left: 55vw;
     
 }
 #pe{
@@ -175,7 +187,7 @@ button{
     width: 33.25vw;
     
     top: 75vw;
-    left: 25vw;
+    left: 22vw;
     
 }
 #ke{
@@ -184,8 +196,8 @@ button{
     width: 27.5vw;
     
     
-    top: 60vw;
-    left: 55vw;
+    top: 63vw;
+    left: 48vw;
     
 }
 h2 {

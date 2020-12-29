@@ -3,14 +3,12 @@ template.innerHTML =
 `   
     <div id="history">
 
-        <p>História prehliadania:</p>
-        <span id="crumbs"><span>
+        <p>História prehliadania:<span id="crumbs"></span></p>
 
         <style>
             
             p{
-                float:left;
-                margin:0%;
+                
                 font-weight: bold;
             }
             span{
