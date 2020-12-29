@@ -237,22 +237,21 @@ function sleep(ms){
 async function autoFillStage(){
     for (let i = 1; i < stage.children.length; i++){ // 0. prvok je background, posledny je text ked skonci hra
         let kraj = stage.children[i];
-        if (kraj.interactive){
-            await sleep(500);
-            putInDropArea(kraj);
-            console.log(stage.children[i].dropArea);
-        }
+        await sleep(500);
+        putInDropArea(kraj);
+        console.log(stage.children[i].dropArea);
     }
+    await sleep(500);
 }
   
-function autoFillGame(){
+async function autoFillGame(){
     stopClock();
-    let givenUp = hasGivenUp(); // aby sa nezobrazili texty cez seba
-    console.log("givenUp:" + givenUp);
-    autoFillStage();
-    if (givenUp){
-        showGameOverFailureText();
-    }
+    clearStage();
+    createBackground();
+    createKraje();
+    document.getElementById("gameTime").innerHTML = "00 : 00";
+    await autoFillStage(); // nech sa text ukaze az po vyplneni
+    showGameOverFailureText();
 }
 
 function showGameOverFailureText(){
