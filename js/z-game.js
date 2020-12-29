@@ -8,17 +8,17 @@ const allStates = 10;
 var completedStates;
 var currentDraggingId;
 
-const statesTruePosition = new Map()
-statesTruePosition.set('argentina', {top: "47.5", left: "32.7"})
-statesTruePosition.set('bolivia', {top: "32", left: "35"})
-statesTruePosition.set('brasil', {top: "8.5", left: "29.5"})
-statesTruePosition.set('paraguay', {top: "45", left: "42.8"})
-statesTruePosition.set('colombia', {top: "-0.3", left: "23.3"})
-statesTruePosition.set('uruguay', {top: "61.5", left: "48.5"})
-statesTruePosition.set('ecuador-peru', {top: "15.5", left: "16.7"})
-statesTruePosition.set('venezuela', {top: "0", left: "30.5"})
-statesTruePosition.set('gu-sur-fgu', {top: "4", left: "45.5"})
-statesTruePosition.set('chile', {top: "41.5", left: "28.4"});
+const statesPosition = new Map()
+statesPosition.set('argentina', {top: "47.5", left: "32.7", originTop: "100", originLeft: "0"})
+statesPosition.set('bolivia', {top: "32", left: "35", originTop: "100", originLeft: "70"})
+statesPosition.set('brasil', {top: "8.5", left: "29.5", originTop: "100", originLeft: "20"})
+statesPosition.set('paraguay', {top: "45", left: "42.8", originTop: "138", originLeft: "10"})
+statesPosition.set('colombia', {top: "-0.3", left: "23.3", originTop: "140", originLeft: "59"})
+statesPosition.set('uruguay', {top: "61.5", left: "48.5", originTop: "150", originLeft: "50"})
+statesPosition.set('ecuador-peru', {top: "15.5", left: "16.7", originTop: "125", originLeft: "18"})
+statesPosition.set('venezuela', {top: "0", left: "30.5", originTop: "127", originLeft: "65"})
+statesPosition.set('gu-sur-fgu', {top: "4", left: "45.5", originTop: "98", originLeft: "53"})
+statesPosition.set('chile', {top: "41.5", left: "28.4", originTop: "100", originLeft: "80"});
 
 /*
 *** stopwatch code inspired from https://jsfiddle.net/Daniel_Hug/pvk6p/ ***
@@ -79,8 +79,8 @@ $(".country-pos").droppable({
 
 function putImgOnMap(imgElementId){
     var element = document.getElementById(imgElementId);
-    element.style.left = statesTruePosition.get(imgElementId).left + '%';
-    element.style.top = statesTruePosition.get(imgElementId).top + '%';
+    element.style.left = statesPosition.get(imgElementId).left + '%';
+    element.style.top = statesPosition.get(imgElementId).top + '%';
     $('#' + imgElementId).draggable("disable");
     completedStates++;
     console.log(element.offsetLeft);
@@ -101,16 +101,25 @@ function checkEndOfGame(completedStates){
 }
 
 document.querySelector('#demo').onclick = function(){
+    for (let key of statesPosition.keys()){
+        $('#' + key).css({
+            top: statesPosition.get(key).originTop + '%',
+            left: statesPosition.get(key).originLeft + '%'
+        });
+    };
     clearTimeout(t);
     clearTimer();
 
+    var i = 0;
+
     /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map */
-    for (let key of statesTruePosition.keys()){
-        $('#' + key).animate({
-            top: statesTruePosition.get(key).top + '%',
-            left: statesTruePosition.get(key).left + '%'
+    for (let key of statesPosition.keys()){
+        $('#' + key).stop(true, true).delay(i*800).animate({  // stop&delay functions from https://stackoverflow.com/questions/4247772/can-i-use-delay-together-with-animate-in-jquery
+            top: statesPosition.get(key).top + '%',
+            left: statesPosition.get(key).left + '%'
         }, "slow");
         $('#' + key).draggable("disable");
+        i++;
     };
 };
 
