@@ -2,7 +2,8 @@
 // nazorny priklad: http://scottmcdonnell.github.io/pixi-examples/index.html?s=demos&f=dragging.js&title=Dragging 
 
 // x1, x2, y1, y2 definuju stvorec kde je obrazok dropnutelny
-// x, y su suradnice kam sa presne dropne (nie je to vzdy stred toho "stvorca", preto nepouzivam napr. funkciu average)
+// x, y su suradnice kam sa presne dropne (nie je to vzdy stred toho "stvorca" kedze kraje su
+// nepravidelnych tvarov a velkosti, preto nepouzivam napr. funkciu average)
 // ukazalo sa ze existuje nieco ako hitArea ... vela roboty by sa usetrilo ...
 
 const kraje = [
