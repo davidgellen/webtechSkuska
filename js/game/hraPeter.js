@@ -24,7 +24,7 @@ function startGame(){
 function gameDemo(){
   $('#nr').animate({top:"18.20vw",left:"12.2vw"});
   $('#tt').delay(500).animate({top:"15vw",left:"3vw"});
-  $('#ba').delay(1000).animate({top:"19.5vw",left:"1.80vw"});
+  $('#ba').delay(1000).animate({top:"19.25vw",left:"1.80vw"});
   $('#bb').delay(1500).animate({top:"14.3vw",left:"22.5vw"});
   $('#pe').delay(2000).animate({top:"4.5vw",left:"40.25vw"});
   $('#ke').delay(2500).animate({top:"12.5vw",left:"44.10vw"});
@@ -79,7 +79,7 @@ $(document).ready(function() {
       drop: function(event, ui) {
         draggableId = ui.draggable.attr("id");
         if(draggableId=="ba"){
-          $('#ba').animate({top:"19.5vw",left:"1.80vw"});
+          $('#ba').animate({top:"19.25vw",left:"1.80vw"});
           $('#ba').draggable('disable');
           winGuard++;
           if(winGuard==8){
