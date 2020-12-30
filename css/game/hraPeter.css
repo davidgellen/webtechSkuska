@@ -12,6 +12,7 @@ h3{
 
 #gametext{
     background-color: black;
+    color: white;
 }
 #start{
     margin-left: 43%;
@@ -20,9 +21,7 @@ button{
     margin-left: 10%;
 }
 
-#gametext{
-    color: white;
-}
+
 
 #container1 {
     margin-top: 22%;
@@ -103,10 +102,11 @@ button{
 }
 
 #demotry{
-    margin-left: 17%;
+    margin-left: 20%;
+    margin-top: 12%;
     
     position: absolute;
-    font-size: 50px;
+    font-size: 100%;
     color: red;
     background-color: black;
     z-index: 2;

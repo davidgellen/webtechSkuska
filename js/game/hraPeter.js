@@ -19,17 +19,19 @@ function startGame(){
   $('#pe').draggable();
   $('#ke').draggable();
   $('#za').draggable();
+  document.getElementById('demo').disabled=true;
+  document.getElementById('start').disabled=true;
 };
 
 function gameDemo(){
-  $('#nr').animate({top:"18.20vw",left:"12.2vw"});
-  $('#tt').delay(500).animate({top:"15vw",left:"3vw"});
-  $('#ba').delay(1000).animate({top:"19.25vw",left:"1.80vw"});
-  $('#bb').delay(1500).animate({top:"14.3vw",left:"22.5vw"});
-  $('#pe').delay(2000).animate({top:"4.5vw",left:"40.25vw"});
-  $('#ke').delay(2500).animate({top:"12.5vw",left:"44.10vw"});
-  $('#tn').delay(3000).animate({top:"7vw",left:"8.75vw"});
-  $('#za').delay(3500).animate({top:"1.5vw",left:"21.25vw"});
+  $('#tt').delay(500).animate({top:"15vw",left:"3vw"},1700);
+  $('#nr').animate({top:"18.20vw",left:"12.2vw"},2300);
+  $('#ba').delay(1000).animate({top:"19.25vw",left:"1.80vw"},2000);
+  $('#bb').delay(1500).animate({top:"14.3vw",left:"22.5vw"},2000);
+  $('#pe').delay(2000).animate({top:"4.5vw",left:"40.25vw"},2000);
+  $('#ke').delay(2500).animate({top:"12.5vw",left:"44.10vw"},2000);
+  $('#tn').delay(3000).animate({top:"7vw",left:"8.75vw"},2000);
+  $('#za').delay(3500).animate({top:"1.5vw",left:"21.25vw"},2000);
   demoWasStarted=1;
   document.getElementById('start').disabled=true;
   document.getElementById('demotry').style.display="block";
