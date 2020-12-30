@@ -52,6 +52,7 @@ td, th {
     text-align: center;
 }
 
+/* https://www.sitepoint.com/css-printer-friendly-pages/ */
 @media print{
     header{
         visibility: hidden;
