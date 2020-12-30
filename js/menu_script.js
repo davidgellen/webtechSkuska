@@ -75,72 +75,187 @@ var menuData = {
 
 const template = document.createElement("template");
 template.innerHTML = `
-<div id="container">
-        <ul id="menu" class="menu"></ul>
-    </div>
-    <style>
-        body{
-            font-size: 12px;
-            font-family:"Arial", Arial, sans-serif;
+<style> @import "../css/all.css"; </style>
+<div class="container">
+    <nav>
+        <div class="mobile-nav">
+            <span>Menu</span>
+            <div class="nav-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+        <ul class="nav">
+        </ul>
+    </nav>
+</div>
+
+<style>
+    .container {
+        margin: 0 auto;
+        width: 75%;
+    }
+  
+    .mobile-nav {
+        background: #555;
+        color: #fff;
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        height: 35px;
+        padding: 20px;
+        font-size: 20px;
+    }
+  
+    .mobile-nav .nav-btn {
+        cursor: pointer;
+    }
+  
+    .nav {
+        background: rgb(48, 48, 48);
+    }
+  
+    ul {
+        list-style: none;
+        display: flex;
+        background: rgb(48, 48, 48);
+    }
+  
+    ul li a,
+    ul li {
+        cursor: pointer;
+        font-size: 20px;
+        text-decoration: none;
+    }
+  
+    ul li {
+        display: block;
+        z-index: 10;
+    }
+  
+    ul li a {
+        padding: 15px 25px;
+        background: rgb(48, 48, 48);
+        color: #fff;
+        display: block;
+    }
+  
+    li a:hover {
+        background-color: #ccc3;
+        color: #111;
+    }
+  
+    ul li ul {
+        background: #555;
+        padding-left: 5px;
+        position: absolute;
+        width: 10em;
+        display: none;
+    }
+  
+    li ul li a {
+        padding: 10px;
+        background: #555;
+        color: #fff;
+    }
+  
+    li ul li a:hover {
+        background: #555;
+    }
+  
+    ul li ul li {
+        position: relative;
+    }
+  
+    ul li ul li ul {
+        position: absolute;
+        top: 5px;
+        left: 100%;
+    }
+  
+    li:hover > ul,
+    li:active > ul {
+        display: block;
+    }
+  
+    .dropdown {
+        position: relative;
+    }
+  
+    .dropdown > a,
+    .dropdown > a:hover,
+    .dropdown.active > a,
+    .dropdown.active > a:hover {
+        background: url("https://i.postimg.cc/y8b7mfcJ/arrow.png");
+        background-position: right;
+        background-size: 15px;
+        background-repeat: no-repeat;
+        color: #fff;
+    }
+  
+    @media screen and (max-width: 768px) {
+        .mobile-nav {
+            display: flex;
         }
-        
-        #container {
-            width: 150px;
+  
+        ul.nav {
+            visibility: hidden;
+            transform: translateY(-120%);
+            opacity: 0;
+            transition: 0.5s ease-in-out;
         }
-        
-        #container ul {
-            margin: 0px;
-            padding: 0px;
+    
+        ul.nav.toggle {
+            visibility: visible;
+            transform: translateY(0);
+            opacity: 1;
         }
-        
-        #container li {
-            list-style: none;
+    
+        ul {
+            flex-direction: column;
+        }
+        ul li {
+            overflow: hidden;
+            border: none;
+        }
+    
+        ul li ul {
             position: relative;
-            z-index: 10;
-        }
-        
-        li {
-            border: 1px solid #292827;
-            background-color: black;
-            width: 120px;
-            height: 20px;
-            padding: 0 9px 0 9px;
-        }
-        
-        #container a {
-            color: #A36220;
-            cursor: pointer;
+            width: 90%;
+            padding: 0 5%;
+            transform: translateX(-100%);
             display: block;
-            height: 25px;
-            line-height: 20px;
-            text-indent: 3px;
-            text-decoration: none;
-            width: 100%;
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+            transition: transform 400ms ease;
         }
-        
-        div {
-            vertical-align: middle;
+    
+        ul li ul li ul {
+            position: initial;
+            background: #555;
+            top: 0;
+            width: 96%;
+            padding: 0 2%;
         }
-        
-        .arrow {
-            float:right;
-        }
-        
-        .title {
-            float:left;
-        }
-        
-        ul.subMenu li {
-            float:left;
-        }
-        
-        li .subMenu {
+            li:hover > ul,
+            li:active > ul {
             display: block;
-            position: absolute;
-            left: 139px;
-            top: -1px;
         }
-    </style>
+    
+        li.active > ul{
+            transform: translateX(0);
+            visibility: visible;
+            height: 100%;
+        }
+    
+        .dropdown > a,
+        .dropdown > a:hover,
+        .dropdown.active > a,
+        .dropdown.active > a:hover {
+            background-position: 95% 50%;
+        }
+    }
 `;
 
 class mojeMenu extends HTMLElement{
@@ -150,62 +265,63 @@ class mojeMenu extends HTMLElement{
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
     connectedCallback(){
-            var menu = this.shadowRoot.querySelector("#menu");
-            function menuElem(obj, el) {
-                for (var i = 0; i < obj.length; i++) {
-                    var menuElement = document.createElement("li");
-                    el.appendChild(menuElement);
-        
-                    var menuLink = document.createElement("a");
-                    menuLink.setAttribute("href", obj[i].uri);
-                    menuLink.setAttribute("title", obj[i].title);
-        
-                    var title = document.createElement("div");
-                    title.className = 'title';
-                    title.innerHTML = obj[i].title;
-        
-                    menuLink.appendChild(title);
-        
-                    if (typeof obj[i].submenu != 'undefined') {
-                        menuLink.className = 'subMenuLink';
+        var dropdowns = [];
+        var menu = this.shadowRoot.querySelector("ul.nav");
+        for (var i = 0; i < menuData.menu.length; i++) {
+            var menuElement = document.createElement("li");
+
+            var menuLink = document.createElement("a");
+            menuLink.setAttribute("href", menuData.menu[i].uri);
+            menuLink.textContent += menuData.menu[i].title;
+            menuLink.setAttribute("title", menuData.menu[i].title);
+            menuElement.appendChild(menuLink);
+            if(typeof menuData.menu[i].submenu != 'undefined'){
+                menuElement.classList.add("dropdown");
+                dropdowns.push(menuLink);
+                var subMenu = document.createElement("ul");
+                for(var j = 0; j < menuData.menu[i].submenu.length; j++){
+                    var subMenuElement = document.createElement("li");
+
+                    var subMenuLink = document.createElement("a");
+                    subMenuLink.setAttribute("href", menuData.menu[i].submenu[j].uri);
+                    subMenuLink.textContent += menuData.menu[i].submenu[j].title;
+                    subMenuLink.setAttribute("title", menuData.menu[i].submenu[j].title);
+                    subMenuElement.appendChild(subMenuLink);
+                    if(typeof menuData.menu[i].submenu[j].submenu != 'undefined'){
+                        subMenuElement.classList.add("dropdown");
+                        dropdowns.push(subMenuLink);
+                        var subSubMenu = document.createElement("ul");
+                        for(var k = 0; k < menuData.menu[i].submenu[j].submenu.length; k++){
+                            var subSubMenuElement = document.createElement("li");
+                            var subSubMenuLink = document.createElement("a");
+                            subSubMenuLink.setAttribute("href", menuData.menu[i].submenu[j].submenu[k].uri);
+                            subSubMenuLink.textContent += menuData.menu[i].submenu[j].submenu[k].title;
+                            subSubMenuLink.setAttribute("title", menuData.menu[i].submenu[j].submenu[k].title);
+                            subSubMenuElement.appendChild(subSubMenuLink);
+                            subSubMenu.appendChild(subSubMenuElement);
+                        }
+                        subMenuElement.appendChild(subSubMenu);
                     }
-        
-                    menuElement.appendChild(menuLink);
-        
-                    if (typeof obj[i].submenu != 'undefined') {
-                        var subMenu = document.createElement("ul");
-                        subMenu.className = 'subMenu';
-        
-                        var properties = {submenu : obj[i].submenu, subMenuEl : subMenu, menuEl : menuElement};
-        
-                        menuLink.properties = properties;
-        
-                        openSubMenu(menuLink);
-                    }
+                    subMenu.appendChild(subMenuElement);
                 }
+                menuElement.appendChild(subMenu);
             }
-        
-            function openSubMenu(el) {
-                el.addEventListener("click", function(ev){
-                    ev.stopPropagation();
-        
-                    var subMenus = ev.target.parentNode.parentNode.parentNode.getElementsByTagName("ul");
-        
-                    var links = ev.target.parentNode.parentNode.parentNode.getElementsByClassName('subMenuLink');
-        
-                    for (var i = 1; i < subMenus.length; i++) {
-                        subMenus[i].parentNode.removeChild(subMenus[i]);
-                    }
-                    this.style.color = "#DBC195";
-        
-                    this.properties.subMenuEl.innerHTML = "";
-                    this.properties.menuEl.appendChild(this.properties.subMenuEl);
-                    menuElem(this.properties.submenu, this.properties.subMenuEl);
-                });
-        
-            };
-        
-            menuElem(menuData.menu, menu);
+            menu.appendChild(menuElement);
+        }
+        var btn = this.shadowRoot.querySelector('.nav-btn');
+        var nav = this.shadowRoot.querySelector('ul.nav');
+        if(btn){
+            btn.addEventListener('click', e=>{
+                nav.classList.toggle('toggle');
+            })
+        }
+        dropdowns.forEach((element) =>{
+            element.addEventListener('click', e=>{
+                if (window.innerWidth < 768) {
+                e.target.parentElement.classList.toggle("active");  
+                }
+            })
+        })
     }
 }
 window.customElements.define("menu-komponent", mojeMenu);
