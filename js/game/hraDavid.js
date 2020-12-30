@@ -9,47 +9,56 @@
 const kraje = [
     {
         src: "../res/imagesHraDavid/finskoBrown.png",
-        drop: {x1: 93.5, x2: 171.5, y1: 11, y2: 106, x: 126.5, y: 63}
+        drop: {x1: 93.5, x2: 171.5, y1: 11, y2: 106, x: 126.5, y: 63},
+        spawn: {x: 141.5, y: 298}
     },
     {
         src:  "../res/imagesHraDavid/finskoLightBlue.png",
-        drop: {x1: 103.5, x2: 121.5, y1: 82, y2: 153, x: 113.5, y: 120}
+        drop: {x1: 103.5, x2: 121.5, y1: 82, y2: 153, x: 113.5, y: 120},
+        spawn: {x: 22.5, y: 307}
     },
     {
         src:  "../res/imagesHraDavid/finskoRed.png",
-        drop: {x1: 88.5, x2: 194.5, y1: 86.5, y2: 237, x: 126.5, y: 204}
+        drop: {x1: 88.5, x2: 194.5, y1: 86.5, y2: 237, x: 126.5, y: 204},
+        spawn: {x: 193.5, y: 485}
     },
     {
         src:  "../res/imagesHraDavid/finskoPurple.png",
-        drop: {x1: 51.5, x2: 111.5, y1: 306, y2: 341, x: 83.5, y: 318}
+        drop: {x1: 51.5, x2: 111.5, y1: 306, y2: 341, x: 83.5, y: 318},
+        spawn: {x: 247.5, y: 216}
     },
     {
         src:  "../res/imagesHraDavid/finskoYellow.png",
-        drop: {x1: 93.5, x2: 134.5, y1: 268, y2: 338, x: 115, y: 313}
+        drop: {x1: 93.5, x2: 134.5, y1: 268, y2: 338, x: 115, y: 313},
+        spawn: {x: 247.5, y: 91}
     },
     {
         src:  "../res/imagesHraDavid/finskoDarkPurple.png",
-        drop: {x1: 136.5, x2: 183.5, y1: 269, y2: 353, x: 168, y: 303}
+        drop: {x1: 136.5, x2: 183.5, y1: 269, y2: 353, x: 168, y: 303},
+        spawn: {x: 39.5, y: 88}
     },
     {
         src:  "../res/imagesHraDavid/finskoOrange.png",
-        drop: {x1: 186, x2: 259, y1: 275, y2: 364, x: 215, y: 314}
+        drop: {x1: 186, x2: 259, y1: 275, y2: 364, x: 215, y: 314},
+        spawn: {x: 57.5, y: 461}
     },
     {
         src: "../res/imagesHraDavid/finskoBlue.png",
-        drop: {x1: 41, x2: 85, y1: 352, y2: 400, x: 63, y: 371}
+        drop: {x1: 41, x2: 85, y1: 352, y2: 400, x: 63, y: 371},
+        spawn: {x: 207.5, y: 56}
     },
     {
         src:  "../res/imagesHraDavid/finskoGreen.png",
-        drop: {x1: 77, x2: 157, y1: 368, y2: 395, x: 118, y: 379}
+        drop: {x1: 77, x2: 157, y1: 368, y2: 395, x: 118, y: 379},
+        spawn: {x: 55.5, y: 206}
     }    
 ]
 
 var matched = 0;
 // base setup pre pixi
 
-var renderer = PIXI.autoDetectRenderer(500, 404);
-renderer.backgroundColor = 0xC0C0C0;
+var renderer = PIXI.autoDetectRenderer(290, 600,{ transparent: true });
+//renderer.backgroundColor = 0xC0C0C0;
 document.getElementById("game").appendChild(renderer.view);
 var stage = new PIXI.Container();
 
@@ -57,7 +66,7 @@ function createKraje(){ // postupne prida do stageu obrazky zo sourcu na pravo o
     let randomKrajeArray = shuffleArray(kraje);
     for (let i = 0; i < randomKrajeArray.length; i++){
         let kraj = PIXI.Texture.from(randomKrajeArray[i].src);
-        createKraj(250 +Math.floor(Math.random() * 250) , Math.floor(50 + Math.random() * 400), kraj, randomKrajeArray[i].drop);
+        createKraj(randomKrajeArray[i].spawn.x,randomKrajeArray[i].spawn.y, kraj, randomKrajeArray[i].drop);
     }
 }
 
@@ -117,7 +126,7 @@ function onDragEnd(){
             stopClock();
         }
     }
-    console.log(this.data.global["x"].toString() +" " + this.data.global["y"].toString());
+    console.log("LO" + this.data.global["x"].toString() +" " + this.data.global["y"].toString());
     this.dragging = false; // musi byt
     this.data = null;
 }
@@ -168,9 +177,9 @@ function gameOver(){
 }
 
 function showGameOverSuccessText(){
-    let text = new PIXI.Text('Hra dokončená',{fontFamily : 'Arial', fontSize: 50, fill : 0x000000, });
-    text.position.x = 95;
-    text.position.y = 175;
+    let text = new PIXI.Text('Správne',{fontFamily : 'Arial', fontSize: 50, fill : 0x00FF00, });
+    text.position.x = 50;
+    text.position.y = 190;
     stage.addChild(text);
 }
 
@@ -255,9 +264,9 @@ async function autoFillGame(){
 }
 
 function showGameOverFailureText(){
-    let text = new PIXI.Text('Neplatný pokus',{fontFamily : 'Arial', fontSize: 50, fill : 0x000000, outline: 0x000000});
-    text.position.x = 100;
-    text.position.y = 100;
+    let text = new PIXI.Text('Neplatný \n pokus',{fontFamily : 'Arial', fontSize: 50, fill : 0x00FF00, outline: 0x000000});
+    text.position.x = 55;
+    text.position.y = 180;
     stage.addChild(text);
 }
 
@@ -271,6 +280,8 @@ function hasGivenUp(){
 document.getElementById("demoBtn").onclick = function(){
     autoFillGame();
 }
+
+createBackground();
 
 /*function getTrueWidthRatio(origX){ // prepocet kvoli responzivite
     let ratio = origX*100/1229.4;

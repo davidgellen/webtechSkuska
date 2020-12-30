@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/footerstyle.css">
     <link rel="stylesheet" href="../css/game/david.css">
@@ -18,37 +18,35 @@
         <h1 class = "text-center">
             Doplň Staroveké Fínsko
         </h1>
-            <div class="breadcrums justify-content-center">
-                <set-breadcrumbs></set-breadcrumbs>
+        <div class="justify-content-center">
+            <set-breadcrumbs></set-breadcrumbs>
+        </div>
+        <div class="row text-center pt-2">
+            <div class="col">
+                <button type = "button" id = "playBtn" class = "btn btn-primary">Hraj</button>
             </div>
-        <div>
-            <div class="row text-center pt-2">
-                <div class="col">
-                    <button type = "button" id = "playBtn" class = "btn btn-primary">Hraj</button>
-                </div>
-                <div class="col">
-                    <p id = "gameTime">00 : 00</p>
-                </div>
-                <div class="col">
-                    <button type = "button" id = "demoBtn" class = "btn btn-primary">Auto Vyplnenie</button>
-                </div>
+            <div class="col">
+                <p id = "gameTime">00 : 00</p>
             </div>
-            <div class="row text-center">
-                <div class="col d-none d-xl-block">
-                    <img src = "../res/imagesHraDavid/addHere.bmp" class = "addImgSide" alt = "reklama">
-                </div>
-                <div id = "game" class = "col">
+            <div class="col">
+                <button type = "button" id = "demoBtn" class = "btn btn-primary">Demo</button>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col d-none d-xl-block">
+                <img src = "../res/imagesHraDavid/addHere.bmp" class = "addImgSide" alt = "reklama">
+            </div>
+            <div id = "game" class = "col-sm-12">
 
-                </div> 
-                <div class="col d-none d-xl-block">
-                    <img src = "../res/imagesHraDavid/addHere.bmp" class = "addImgSide" alt = "reklama">
-                </div>              
-            </div>
-            <div class="row text-center">
-                <div class="col d-xl-none">
-                    <img src = "../res/imagesHraDavid/addHere.bmp" class = "addImgBot my-4" alt = "reklama">
-                </div> 
-            </div>
+            </div> 
+            <div class="col d-none d-xl-block">
+                <img src = "../res/imagesHraDavid/addHere.bmp" class = "addImgSide" alt = "reklama">
+            </div>              
+        </div>
+        <div class="row text-center">
+            <div class="col d-xl-none">
+                <img src = "../res/imagesHraDavid/addHere.bmp" class = "addImgBot my-4" alt = "reklama">
+            </div> 
         </div>
     </div>
     
