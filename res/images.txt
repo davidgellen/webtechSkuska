@@ -1,5 +1,5 @@
-sto tabletov tyzdene
+background: https://wallpapercave.com/wp/wp2787778.jpg
 
-https://wallpapercave.com/wp/wp2787778.jpg
-https://wallpaperaccess.com/full/233066.jpg
-https://i.pinimg.com/originals/e8/6b/2a/e86b2a9cf94cf601384bacea7a684a6a.png
+hraZuzana:
+    https://i.pinimg.com/originals/2d/57/90/2d57907e2859052ba6fa647795db2aba.jpg
+    https://i.pinimg.com/originals/24/a8/a1/24a8a12a4f5a879136336e8ae029f269.png
