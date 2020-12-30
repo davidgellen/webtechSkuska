@@ -1,16 +1,12 @@
-#game{
+/* #game{
     margin: 0 auto;
-}
+} */
 
 /*https://stackoverflow.com/questions/28683329/how-to-center-bootstrap-columns-when-they-are-an-odd-number
 centrovanie neparneho poctu col ale aj ide to aj v inych pripadoch*/
 .row.text-center > div {
     display: inline-block;
     float: none;
-}
-
-.container{
-    min-width: 550px;
 }
 
 #gameTime{
@@ -21,9 +17,7 @@ centrovanie neparneho poctu col ale aj ide to aj v inych pripadoch*/
     background-color: rgba(255,255,255,0.85);
 }
 
-.breadcrums{
-    margin: 0 auto;
-}
+
 
 .addImgSide{
     width: auto;
@@ -36,10 +30,4 @@ centrovanie neparneho poctu col ale aj ide to aj v inych pripadoch*/
     width: auto;
     height: 200px;
     margin: 0 auto;
-}
-
-.addDiv{
-    display: table-cell; 
-    vertical-align: middle; 
-    text-align: center
 }
