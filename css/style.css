@@ -52,3 +52,12 @@ td, th {
     text-align: center;
 }
 
+@media print{
+    header{
+        visibility: hidden;
+    }
+
+    footer{
+        visibility: hidden;
+    }
+}
