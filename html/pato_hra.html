@@ -5,17 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/footerstyle.css">
     <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/game/hraPatrik.css">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <title>Pato hra</title>
 </head>
 <body>
     <menu-komponent></menu-komponent>
     <set-breadcrumbs></set-breadcrumbs>
-    <p>Toto je stranka hry Pata</p>
+    <div class="contajner">
+      <div class="d-flex justify-content-center">
+        <p>Poskladaj mapu Rakúska, čas ti už beží :)</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <h1 class="hlavnyNadpis" id="hlaska"></h1>
+      </div>
+      <div class="d-flex justify-content-center" id="hra"></div>
+      <div class="d-flex justify-content-center">
+        <h2 class="podnadpis" id="stopky"></h2>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="button" id="hratbtn" class="btn btn-info" onclick="znovaHrat()">Znova hrať</button>
+        <button type="button" id="demobtn" class="btn btn-dark" onclick="krajePovodneMiesta(); demo();">Demo</button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p>Autor: Patrik Ištók<br> Nejde to hrať na mobile. Nepodarila sa mi spraviť responzivita inak by hra na mobile fungovala.</p>
+      </div>
+    </div>
+
+    </div>
+
     <footer>	
 		<p>By using this site, you agree with our terms of use, cookies and privacy policy. Copyright 2020. All Rights Reserved.</p>
 		<p>Powered by HAKERMANS.</p>
-	</footer>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"></script> 
+    <script src="../js/game/pixi.min.js"></script>
     <script src="../js/menu_script.js"></script>
     <script src="../js/breadcrumbs.js"></script>
+    <script src="../js/game/hraPatrik.js"></script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+.contajner{
+    background-color: rgb(219, 219, 219);
+    padding: 4px;
+    width: 75%;
+    margin: auto;
+}
+
+.hlavnyNadpis{
+    font-family: "Comic Sans MS", sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.podnadpis{
+    text-align: center;
+    font-family: 'Lobster', cursive, serif;
+    font-size: 30px;
+}
