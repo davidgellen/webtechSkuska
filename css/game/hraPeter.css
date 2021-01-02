@@ -15,10 +15,10 @@ h3{
     color: white;
 }
 #start{
-    margin-left: 43%;
+    margin-left: 40%;
 }
-button{
-    margin-left: 10%;
+#demo{
+    margin-left: 5%;
 }
 
 
@@ -201,7 +201,7 @@ button{
     
 }
 h2 {
-    margin-left: 45%;
+    margin-left: 40%;
     display: inline-block;
     margin-bottom: 2%;
     color: red;
@@ -217,7 +217,7 @@ aside{
 
 #timer{
     position: relative;
-    margin-left: 45%;
+    margin-left: 40%;
     font-size: 30px;
     color: red;
 }

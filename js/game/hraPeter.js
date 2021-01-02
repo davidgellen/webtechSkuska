@@ -29,7 +29,7 @@ function gameDemo(){
   $('#ba').delay(1000).animate({top:"19.25vw",left:"1.80vw"},2000);
   $('#bb').delay(1500).animate({top:"14.3vw",left:"22.5vw"},2000);
   $('#pe').delay(2000).animate({top:"4.5vw",left:"40.25vw"},2000);
-  $('#ke').delay(2500).animate({top:"12.5vw",left:"44.10vw"},2000);
+  $('#ke').delay(2500).animate({top:"12.75vw",left:"44.10vw"},2000);
   $('#tn').delay(3000).animate({top:"7vw",left:"8.75vw"},2000);
   $('#za').delay(3500).animate({top:"1.5vw",left:"21.25vw"},2000);
   demoWasStarted=1;
@@ -138,7 +138,7 @@ $(document).ready(function() {
       drop: function(event, ui) {
         draggableId = ui.draggable.attr("id");
         if(draggableId=="ke"){
-          $('#ke').animate({top:"12.5vw",left:"44.10vw"});
+          $('#ke').animate({top:"12.75vw",left:"44.10vw"});
           $('#ke').draggable('disable');
           winGuard++;
           if(winGuard==8){
