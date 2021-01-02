@@ -36,6 +36,8 @@ function gameDemo(){
   document.getElementById('start').disabled=true;
   document.getElementById('demotry').style.display="block";
 };
+
+//Kód časovača je prebratý zo stránky https://github.com/ym78900/StopWatch
 function startTimer(){
   timex = setTimeout(function(){
       seconds++;

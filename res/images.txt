@@ -8,3 +8,13 @@ hraPatrik:
 https://rakusko9.webnode.sk/administrativne-clenenie/      mapa rakúska
 hraDavid:
 https://upload.wikimedia.org/wikipedia/commons/1/1c/Finland_Regions_Map_Numbered.svg upravene v skicare
+hraPeter:
+https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Trencin_okresy.png/375px-Trencin_okresy.png
+https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bratislava_okresy.png/375px-Bratislava_okresy.png
+https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Trnava_okresy.png/375px-Trnava_okresy.png
+https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Nitra_okresy.png/375px-Nitra_okresy.png
+https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Zilina_okresy.png/375px-Zilina_okresy.png
+https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Banska_okresy.png/375px-Banska_okresy.png
+https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Presov_okresy.png/375px-Presov_okresy.png
+https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Kosice_okresy.png/375px-Kosice_okresy.png
+https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Slovakia_-_outline_map.svg/600px-Slovakia_-_outline_map.svg.png
