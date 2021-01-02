@@ -8,7 +8,7 @@ document.getElementById("meninyNameInputSubmit").onclick = function(){
 
 
 
-// cast pre komponent kjhvhgv
+// cast pre komponent
 
 const templateMeniny = document.createElement("template");
 templateMeniny.innerHTML = `
@@ -127,7 +127,6 @@ class Meniny extends HTMLElement{
         var meninyDateResult = this.shadowRoot.querySelector("#meninyDateInputResult");
         function findMeninyFromDate(){
             //https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s04.html
-            //let regex = new RegExp('^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])$');
             let regex = new RegExp('^(3[01]|[12][0-9]|0?[1-9]).(1[0-2]|0?[1-9]).$');
             let inputValue = inputDate.value;
             console.log(inputValue);
@@ -146,7 +145,7 @@ class Meniny extends HTMLElement{
                             result = result + 
                             xmlData[i].getElementsByTagName(countryValue)[0].childNodes[0].nodeValue;
                         }
-                        catch{} // jedno sa tam najde vzdy
+                        catch{} 
                         try{
                             result = result + "<br>" +
                             xmlData[i].getElementsByTagName(sviatky)[0].childNodes[0].nodeValue;
@@ -189,7 +188,6 @@ class Meniny extends HTMLElement{
                 for (let i = 0; i <xmlData.length; i++) {
                     let xmlDate = xmlData[i].getElementsByTagName("den")[0].childNodes[0].nodeValue; 
                     try{
-                        // vraj ked sa takto retazia metody vyzeram jak pan
                         let currentNames = removeAllDiakritika(xmlData[i].getElementsByTagName(country)[0].childNodes[0].nodeValue.toLowerCase()).split(", ");  
                         if (currentNames.includes(nameInput)){
                             meninyNameInputResult.innerHTML = transfromDenToDate(xmlDate);
@@ -198,7 +196,7 @@ class Meniny extends HTMLElement{
                             break;
                         }
                     }
-                    catch{} // 100% best javascript practice right here in front of your Augen
+                    catch{} 
                 } 
             }
             if (nameInput.length<1){
