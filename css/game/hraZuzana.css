@@ -1,5 +1,5 @@
 body{
-    background-image: url("../res/images/worldmap.jpg");
+    background-image: url("../../res/images/worldmap.jpg");
     background-size: 1300px auto;
 }
 
@@ -195,3 +195,12 @@ body{
     left: 80%;
 }
 
+@media print{
+    header{
+        visibility: hidden;
+    }
+
+    footer{
+        visibility: hidden;
+    }
+}
